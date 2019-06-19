@@ -1,0 +1,74 @@
+﻿
+<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+    <div>
+        <a (click)="createWindow()" mat-button color="#FF8A65" class="add-new-item">Добавить новый каталог ПВХ окна</a>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Имя </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imageUrl">
+        <mat-header-cell *matHeaderCellDef> Изображение ПВХ </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <a class="gallery-item" [attr.data-caption]="element.description" [href]="element.imageUrl">
+                <img class="work-sample" [src]="element.imageUrl" alt="One" />
+            </a>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="feature">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Характеристики </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.feature}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="size">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Размер </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.size}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Стоимость </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="hasSetup">
+        <mat-header-cell *matHeaderCellDef> С установкой </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <div *ngIf="element.hasSetup==false">Нет</div>
+            <div *ngIf="element.hasSetup==true">Да</div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Удалить </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="deleteWindow(element.id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+        <mat-header-cell *matHeaderCellDef> Редактировать </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="accent" (click)="editWindow(element.id)">
+                <mat-icon class="mat-18">system_update</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator #paginator
+               [length]="pagingAlias.length"
+               [pageIndex]="pagingAlias.pageIndex"
+               [pageSize]="pagingAlias.pageSize"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="loadWindows($event)">
+</mat-paginator>

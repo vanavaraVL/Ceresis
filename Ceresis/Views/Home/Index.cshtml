@@ -1,0 +1,27 @@
+﻿<div id="loader-wrapper">
+    <div id="loader"></div>
+</div>
+
+<app-root>
+
+</app-root>
+
+<!--
+<script type="text/javascript" src="./polyfills.js" asp-append-version="true"></script>
+<script type="text/javascript" src="./vendor.js" asp-append-version="true"></script>
+    -->
+
+@section Scripts{
+    <script type="text/javascript" src="./app_main.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 1) {
+                $('.navbar').addClass("sticky");
+            }
+            else {
+                $('.navbar').removeClass("sticky");
+            }
+        });
+    </script>
+}

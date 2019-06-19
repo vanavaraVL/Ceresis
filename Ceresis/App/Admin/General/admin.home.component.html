@@ -1,0 +1,35 @@
+﻿<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+<div class="row-header">
+    <div class="container">
+        <p class="header__p">Настройки</p>
+    </div>
+</div>
+
+<mat-toolbar color="primary">
+    <span>{{getName()}}</span>
+
+    <span class="example-fill-remaining-space"></span>
+
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+            <li>
+                <a routerLink="/admin/editworksample">Редактирование примеров работ</a>
+            </li>
+            <li>
+                <a routerLink="/admin/editsplit">Редактирование каталога сплит-систем</a>
+            </li>
+            <li>
+                <a routerLink="/admin/editwindow">Редактирование ПВХ-каталога</a>
+            </li>
+            <li>
+                <a routerLink="/admin/editworkprice">Редактирование услуг (работа)</a>
+            </li>
+            <li>
+                <a routerLink="/admin/editlogos">Редактирование логотипов</a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

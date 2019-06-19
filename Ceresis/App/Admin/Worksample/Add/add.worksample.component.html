@@ -1,0 +1,29 @@
+﻿<mat-dialog-content class="mat-typography">
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Создать пример работ</mat-card-title>
+            <form [formGroup]="createWorksampleForm" autocomplete="off" novalidate (ngSubmit)="addWorksample(createWorksampleForm.value)" fxLayout="column wrap"
+                  fxLayoutAlign="center center" fxLayoutGap="30px">
+                <mat-card-content>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Название работы" formControlName="name" id="name">
+                        <mat-error *ngIf="hasError('name', 'required')">Необходимо заполнить название</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Описание работы" formControlName="description" id="description">
+                    </mat-form-field>
+
+                    <input type="file" placeholder="Файл примера" accept="image/x-png,image/gif,image/jpeg" formControlName="image" id="image" (change)="handleFileInput($event.target.files)">
+                    <mat-error *ngIf="hasError('image', 'required')">Необходимо прикрепить файл</mat-error>
+
+                </mat-card-content>
+                <mat-card-actions align="center">
+                    <button mat-raised-button color="primary" [disabled]="!createWorksampleForm.valid">Сохранить</button>
+                    <button type="button" mat-raised-button color="warn" (click)="onCancel()">Отмена</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </section>
+</mat-dialog-content>

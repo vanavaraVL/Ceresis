@@ -1,0 +1,128 @@
+﻿<div class="row-header">
+    <div class="container">
+        <p class="header__p">Корзина покупателя</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page12" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+        <div class="row">
+            <div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <h5><span class="glyphicon glyphicon-shopping-cart"></span>Заказанные услуги/товары</h5>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="btn btn-primary btn-sm btn-block" (click)="back()">
+                                        <span class="glyphicon glyphicon-share-alt"></span> Продолжить заказы
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div *ngFor="let item of cart.items; index as i">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <img class="img-responsive" src="../../images/cart_item.png">
+                                </div>
+                                <div class="col-xs-4">
+                                    <h4 class="product-name"><strong>{{item.name}}</strong></h4><h4><small>{{item.description}}</small></h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="col-xs-6 text-right" *ngIf="item.price">
+                                        <h6><strong>₽ {{item.price}} <span class="text-muted">x</span></strong></h6>
+                                    </div>
+                                    <div class="col-xs-6 text-right" *ngIf="!item.price">
+                                        <h6><strong>По договору <span class="text-muted">x</span></strong></h6>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="number" min="1" class="form-control input-sm" [(ngModel)]="item.count">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <button type="button" class="btn btn-link btn-xs" (click)="removeItem(i)">
+                                            <span class="glyphicon glyphicon-trash"> </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row text-center">
+                            <div class="col-xs-12">
+                                <h4 class="text-right">Общая стоимость <strong>{{getTotalPrice()}}</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form name="login" #submitForm="ngForm" id="submit" (ngSubmit)="create()" novalidate="">
+                    <!-- service-form -->
+                    <div class="service-form">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb10 ">
+                                <h3>Информация о размещении заказа</h3>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                                <div class="form-group service-form-group">
+                                    <label class="control-label sr-only" for="firstName"></label>
+                                    <input id="firstName" name="firstName" type="text" placeholder="Имя" class="form-control feedback-form-control" required #firstName="ngModel" [(ngModel)]="requestFirstName">
+                                    <div class="form-icon"><i class="fa fa-user"></i></div>
+                                </div>
+                                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                    <p *ngIf="firstName.errors?.required" class="help-block text-danger">Укажите Ваше имя</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12  ">
+                                <div class="form-group service-form-group">
+                                    <label class="control-label sr-only" for="lastName"></label>
+                                    <input id="lastName" name="lastName" type="text" placeholder="Фамилия" class="form-control feedback-form-control" [(ngModel)]="requestLastName">
+                                    <div class="form-icon"><i class="fa fa-user"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <div class="form-group service-form-group">
+                                    <label class="control-label sr-only" for="email"></label>
+                                    <input id="email" type="email" placeholder="Адрес электронной почты - email" class="form-control feedback-form-control" name="email" #email="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" [(ngModel)]="requestEmail">
+                                    <div class="form-icon"><i class="fa fa-envelope"></i></div>
+                                </div>
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                    <p *ngIf="email.errors?.required" class="help-block text-danger">Требуется указать email</p>
+                                    <p *ngIf="email.errors?.pattern && email.touched" class="help-block text-danger">Введенный email имеет неверный формат</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <div class="form-group service-form-group">
+                                    <div class="form-icon"><i class="fa fa-phone"></i></div>
+                                    <label class="control-label sr-only" for="phone"></label>
+                                    <input id="phone" type="text" prefix="+7" mask="(000)-000-00-00" [showMaskTyped]="true" placeholder="Контактный мобильный телефон" class="form-control feedback-form-control" required name="phone" #phone="ngModel" pattern="\d{10}$" [(ngModel)]="requestPhone">
+                                </div>
+                                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                                    <p *ngIf="phone.errors?.required" class="help-block text-danger">Укажите контактный телефон для связи</p>
+                                    <p *ngIf="phone.errors?.pattern && phone.touched" class="help-block text-danger">Введенный телефон имеет неверный формат</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <div class="form-group">
+                                    <label class="control-label sr-only" for="textarea"></label>
+                                    <textarea class="form-control feedback-form-control" id="textarea" name="textarea" rows="6" placeholder="Комментарий к заказу" [(ngModel)]="requestDescription"></textarea>
+                                </div>
+                            </div>
+                                <button type="submit" name="singlebutton" class="btn btn-default btn-block btn-send mb10" [disabled]="!submitForm.form.valid">Оформить заказ</button>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <p><small>Мы ответим в течении 10 минут</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- /.service-form -->
+            </div>
+        </div>
+    </div>
+</div>

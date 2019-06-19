@@ -1,0 +1,51 @@
+﻿<div class="contact" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Форма обратной связи</h2>
+            <h3 class="section-subheading">Если вас заинтересовал каталог продукции, заполните форму связи. Мы обязательно свяжемся с вами в ближайшее время</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form name="sentMessage" #sentMessageForm="ngForm" id="contactForm" (ngSubmit)="sendMessage()" novalidate="">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Укажите ваше имя" name="name" #name="ngModel" required [(ngModel)]="feedback.name">
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                                <p *ngIf="name.errors?.required" class="help-block text-danger">Укажите ваше имя</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Укажите ваш email" name="email" #email="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" [(ngModel)]="feedback.email">
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <p *ngIf="email.errors?.required" class="help-block text-danger">Требуется указать email для обращения</p>
+                                <p *ngIf = "email.errors?.pattern && email.touched" class="help-block text-danger">Введенный email имеет неверный формат</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input id="phone" type="text" prefix="+7" mask="(000)-000-00-00" [showMaskTyped]="true" class="form-control" placeholder="Укажите контактный телефон" required pattern="\d{10}$" #phone="ngModel" name="phone" [(ngModel)]="feedback.phone">
+                            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                                <p *ngIf="phone.errors?.required" class="help-block text-danger">Укажите контактный телефон для связи</p>
+                                <p *ngIf="phone.errors?.pattern && phone.touched" class="help-block text-danger">Введенный телефон имеет неверный формат</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Текст сообщения" name="message" required #message="ngModel" [(ngModel)]="feedback.message"></textarea>
+                            <div *ngIf="message.invalid && (message.dirty || message.touched)">
+                                <p *ngIf="message.errors?.required" class="help-block text-danger">Необходимо указать текст обращения</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12 text-center">
+                        <div id="success"></div>
+                        <button type="submit" class="btn btn-success" [disabled]="!sentMessageForm.form.valid">Отправить сообщение</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

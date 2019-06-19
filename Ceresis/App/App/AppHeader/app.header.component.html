@@ -1,0 +1,54 @@
+﻿
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand name-brand" href="javascript:"><img src="../../../images/logo_2.png" class="logo-main" alt="Logo"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li [ngClass]="{'active': currentState==10}"><a (click)="goTo(10)" class="no-line"><span>О нас</span></a></li>
+                <li [ngClass]="{'active': currentState==40}"><a (click)="goTo(40)" class="no-line"><span>Каталог продукции</span></a></li>
+                <li [ngClass]="{'active': currentState==30}"><a (click)="goTo(30)" class="no-line"><span>Государственные закупки</span></a></li>
+                <li [ngClass]="{'active': currentState==50}"><a (click)="goTo(50)" class="no-line"><span>Условия предоставления услуг и оплата</span></a></li>
+                <li [ngClass]="{'active': currentState==20}"><a (click)="goTo(20)" class="no-line"><span>Наши контакты</span></a></li>
+            </ul>
+            <div class="block-right">
+                <div class="flexbox-header">
+                    <div class="flexbox-header__div">
+                        <!--<div class="block-social">
+                            <a href="https://www.facebook.com" class="social-link fb" target="_blank"></a>
+                            <a href="https://twitter.com" class="social-link tw" target="_blank"></a>
+                            <a href="https://www.instagram.com" class="social-link in" target="_blank"></a>
+                        </div>-->
+                        <div class="wrapper">
+                            <a href="https://vk.com/public168095401" target="_blank"><i class="fa fa-2x fa-vk"></i></a>
+                            <a href="https://www.ok.ru/group/58945988263994" target="_blank"><i class="fa fa-2x fa-odnoklassniki-square"></i></a>
+                            <a href="https://www.instagram.com/kit_service56/?hl=ru" target="_blank"><i class="fa fa-2x fa-instagram"></i></a>
+                        </div>
+                        <div class="round blue block-search">
+                            <span class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></span>
+                        </div>
+                        <div class="cart-shop block-search">
+                            <a (click)="orders()">
+                                <i class="fa fa-shopping-cart fa-2x">
+                                    <span class="badge badge-danger" *ngIf="hasCartItems()">{{getCartItems()}}</span>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <login-component></login-component>
+</div>

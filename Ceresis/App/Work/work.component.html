@@ -1,0 +1,78 @@
+﻿<div class="row-header">
+    <div class="container">
+        <p class="header__p">Работа по установке</p>
+    </div>
+</div>
+
+<section class="container-2" data-section-name="work">
+
+    <div class="page5">
+        <div class="w_production">
+            <p class="f-45 h2-title center">Мы произведем <span>сервисное обслуживание по видам работ</span></p>
+            <p class="description-after center">Мы заботимся о комфорте Вашего дома</p>
+            <div class="block_production">
+                <div class="row left">
+                    <div class="col-md-4">
+                        <p><strong>Доставка до места</strong>Мы доставим Вам Ваш заказ абсолютно бесплатно</p>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Предварительный замер</strong>Наш специалист произведет предварительный замер и выполнит расчет абсолютно бесплатно</p>
+                    </div>
+                </div>
+                <div class="row left">
+                    <div class="col-md-4">
+                        <p><strong>Сборка</strong>Мастера с многолетним стажем произведут монтаж, либо обслуживание в любое удобное для Вас время</p>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Индивидуальный подход</strong>Наш специалист всегда произведет наиболее эффективный подбор оборудования в соотношении цена-качество-эффективность</p>
+                    </div>
+                </div>
+                <img class="production_img" src="../../images/service14_b.jpg" alt="Production">
+            </div>
+        </div>
+    </div>
+
+    <div class="row-filter">
+        <div class="container">
+            <p class="header__p">Описание цен на работу</p>
+        </div>
+    </div>
+    
+    <div class="page7">
+        <div class="container" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+            <div class="row row-text">
+                <!--<div class="col-md-20 col-xs-20">-->
+                <div class="block-text">
+                    <p class="f-45 h2-title">Наименование работ</p>
+
+                    <div class="row" *ngFor="let item of workprices; index as i;">
+                        <div class="col-md-5 col-xs-5">
+                            <p class="block-text_description">{{item.name}}</p>
+                        </div>
+                        <div class="col-md-2 col-xs-2">
+                            <p class="block-text_description">{{item.unity}}</p>
+                        </div>
+                        <div class="col-md-2 col-xs-2">
+                            <p class="block-text_description" *ngIf="item.exactPrice && item.contactPrice==false"> {{item.price}} руб.</p>
+                            <p class="block-text_description" *ngIf="item.exactPrice==false && item.contactPrice==false"> от {{item.price}} руб.</p>
+                            <p class="block-text_description" *ngIf="item.contactPrice"> рассчитывается индивидуально</p>
+                        </div>
+                        <div class="col-md-3 col-xs-3">
+                            <a class="btn btn-link btn-block" (click)="putToCart(i)">
+                                Добавить в корзину
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--  </div>-->
+            </div>
+        </div>
+    </div>
+
+
+</section>

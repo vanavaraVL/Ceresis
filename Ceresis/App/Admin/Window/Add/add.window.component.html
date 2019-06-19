@@ -1,0 +1,50 @@
+﻿<mat-dialog-content class="mat-typography">
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Создать ПВХ окно в каталоге</mat-card-title>
+            <form [formGroup]="createWindowForm" autocomplete="off" novalidate (ngSubmit)="addWindow(createWindowForm.value)" fxLayout="column wrap"
+                  fxLayoutAlign="center center" fxLayoutGap="30px">
+                <mat-card-content>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Название" formControlName="name" id="name">
+                        <mat-error *ngIf="hasError('name', 'required')">Необходимо заполнить название</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field hintLabel="Ввод: например 123x123">
+                        <input matInput type="text" placeholder="Размер" mask="00*x00*" [dropSpecialCharacters]="false" [specialCharacters]="[ 'x', 'х', 'X', 'Х' ]" [showMaskTyped]="false" formControlName="size" id="size">
+                        <mat-error *ngIf="hasError('size', 'required')">Необходимо заполнить размер</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Характеристики" formControlName="feature" id="feature">
+                        <mat-error *ngIf="hasError('feature', 'required')">Необходимо заполнить Характеристики</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Цена" formControlName="price" id="price">
+                        <mat-error *ngIf="hasError('price', 'required')">Необходимо заполнить Цена</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <p>Стоимость с установкой</p>
+                        <mat-select [(value)]="hasSetup">
+                            <mat-option value="true">Да</mat-option>
+                            <mat-option value="false">Нет</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <hr />
+
+                    <input type="file" placeholder="Файл отображения" accept="image/x-png,image/gif,image/jpeg" formControlName="image" id="image" (change)="handleFileInput($event.target.files)">
+                    <mat-error *ngIf="hasError('image', 'required')">Необходимо прикрепить изображение</mat-error>
+
+                </mat-card-content>
+                <mat-card-actions align="center">
+                    <button mat-raised-button color="primary" [disabled]="!createWindowForm.valid">Сохранить</button>
+                    <button type="button" mat-raised-button color="warn" (click)="onCancel()">Отмена</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </section>
+</mat-dialog-content>

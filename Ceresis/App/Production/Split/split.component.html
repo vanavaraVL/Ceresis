@@ -1,0 +1,49 @@
+﻿<div class="container-2">
+
+    <section class="page4" data-section-name="home">
+        <div class="w_production_description">
+            <p class="f-45 h2-title center">Каталог продукции <span>сплит-систем</span></p>
+            <p class="description-after center">Примеры производителей</p>
+        </div>
+        <a class="scroll-down" address="true" (click)="nextScroll()"></a>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio sectionData" data-section-name="portfolio" id="portfolio">
+        <div class="container-fluid" style="margin-bottom: 260px;">
+            <div class="row">
+                <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="gallery-title">Фирмы, производства, оборудование</h1>
+                </div>
+                <div align="center">
+                    <button (click)="filterData('category10', $event)" class="filter-button" data-filter="category10">Бытовые сплит-системы</button>
+                    <button (click)="filterData('category20', $event)" class="filter-button" data-filter="category20" style="min-width:410px;">Полупромышленные и промышленные сплит-системы</button>
+                    <button (click)="filterData('all', $event)" class="filter-button" data-filter="all">Все производители</button>
+                </div>
+
+                <br />
+
+                <a class="category{{item.typeValue}} gallery_product col-sm-3 col-xs-6" [href]="item.imageUrl" *ngFor="let item of logos; index as i;">
+                    <img class="img-responsive" alt="Logo{{item.typeValue}}" [src]="item.imageUrl" />
+                    <div class='img-info'>
+                        <h4>{{item.type}}</h4>
+                        <p>{{item.name}}</p>
+                        <p>{{item.description}}</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <a class="scroll-down" address="true" (click)="nextScroll()"></a>
+    </section>
+
+    <!-- About Section -->
+    <section class="sectionData" data-section-name="about">
+        <app-about></app-about>
+    </section>
+
+    <!-- Contact Section-->
+    <section class="sectionData" data-section-name="contact">
+        <app-feedback></app-feedback>
+    </section>
+</div>

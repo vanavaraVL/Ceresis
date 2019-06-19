@@ -1,0 +1,61 @@
+﻿<mat-dialog-content class="mat-typography">
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Редактировать запись каталога домашних сплит-систем</mat-card-title>
+            <form [formGroup]="editForm" autocomplete="off" novalidate (ngSubmit)="editSplit(editForm.value)" fxLayout="column wrap"
+                  fxLayoutAlign="center center" fxLayoutGap="30px">
+                <mat-card-content>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Модель" formControlName="model" id="model">
+                        <mat-error *ngIf="hasError('model', 'required')">Необходимо заполнить модель</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Мощность (охлаждение/обогрев), кВт" formControlName="power" id="power">
+                        <mat-error *ngIf="hasError('power', 'required')">Необходимо заполнить  Мощность (охлаждение/обогрев), кВт</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Потребляемая мощность (охлаждение/обогрев), кВт" formControlName="powerRealty" id="powerRealty">
+                        <mat-error *ngIf="hasError('powerRealty', 'required')">Необходимо заполнить  Потребляемая мощность (охлаждение/обогрев), кВт</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Класс энергоэффективности" formControlName="energoEfficienty" id="energoEfficienty">
+                        <mat-error *ngIf="hasError('energoEfficienty', 'required')">Необходимо заполнить Класс энергоэффективности</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Уровень шума, дБ(А)" formControlName="noise" id="noise">
+                        <mat-error *ngIf="hasError('noise', 'required')">Необходимо заполнить Уровень шума, дБ(А)</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field hintLabel="Ввод: например 123x123x123">
+                        <input matInput type="text" mask="00*x00*x00*" [dropSpecialCharacters]="false" [specialCharacters]="[ 'x', 'х', 'X', 'Х' ]" [showMaskTyped]="false" placeholder="Габариты внутреннего блока (ШхВхГ), мм" formControlName="sizeExternal" id="sizeExternal">
+                        <mat-error *ngIf="hasError('sizeExternal', 'required')">Необходимо заполнить Габариты внутреннего блока (ШхВхГ), мм</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field hintLabel="Ввод: например 123x123x123">
+                        <input matInput type="text" mask="00*x00*x00*" [dropSpecialCharacters]="false" [specialCharacters]="[ 'x', 'х', 'X', 'Х' ]" [showMaskTyped]="false" placeholder="Габариты наружнего блока (ШхВхГ), мм" formControlName="sizeInternal" id="sizeInternal">
+                        <mat-error *ngIf="hasError('sizeInternal', 'required')">Необходимо заполнить Габариты наружнего блока (ШхВхГ), мм</mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Цена" formControlName="price" id="price">
+                        <mat-error *ngIf="hasError('price', 'required')">Необходимо заполнить Цена</mat-error>
+                    </mat-form-field>
+
+                    <hr/>
+
+                    <input type="file" placeholder="Файл отображения" accept="image/x-png,image/gif,image/jpeg" formControlName="image" id="image" (change)="handleFileInput($event.target.files)">
+
+                </mat-card-content>
+                <mat-card-actions align="center">
+                    <button mat-raised-button color="primary" [disabled]="!editForm.valid">Сохранить</button>
+                    <button type="button" mat-raised-button color="warn" (click)="onCancel()">Отмена</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </section>
+</mat-dialog-content>

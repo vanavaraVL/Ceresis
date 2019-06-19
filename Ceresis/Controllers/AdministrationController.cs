@@ -1,0 +1,159 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Ceresis.Data.Core.Model;
+using Ceresis.Data.Core.Request;
+using Ceresis.Data.Core.Response;
+using Ceresis.Service.Core;
+using Ceresis.Service.Core.Managers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Ceresis.Controllers
+{
+    [Authorize(Roles = "admin")]
+    [Produces("application/json")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
+    public class AdministrationController : Controller
+    {
+        private readonly AdminManager aManager;
+
+        public AdministrationController(AdminManager aManager)
+        {
+            this.aManager = aManager;
+        }
+
+        [HttpPost]
+        [Route("worksamples", Name = "GetWorkSamples")]
+        public ResponseGetAllWorkSamples GetWorkSamples([FromBody] RequestGetWorkSamples request)
+        {
+            return aManager.GetWorkSamples(request);
+        }
+
+        [HttpDelete]
+        [Route("worksamples/{id:int:required}", Name = "DeleteWorkSample")]
+        public ResponseDeleteWorkSample DeleteWorkSample(int id)
+        {
+            return aManager.DeleteWorkSample(id);
+        }
+
+
+        [HttpPost]
+        [Route("worksamples/new", Name = "AddNewWorksample")]
+        public ResponseAddNewWorksample AddNewWorksample([FromBody] RequestAddNewWorksample request)
+        {
+            return aManager.AddWorksample(request);
+        }
+
+        [HttpPost]
+        [Route("windows", Name = "GetWindowPlastics")]
+        public ResponseGetWindowPlastics GetWindowPlastics([FromBody] RequestGetWindowPlastics request)
+        {
+            return aManager.GetWindowPlastics(request);
+        }
+
+        [HttpDelete]
+        [Route("windows/{id:int:required}", Name = "DeleteWindow")]
+        public ResponseDeleteWindow DeleteWindow(int id)
+        {
+            return aManager.DeleteWindow(id);
+        }
+
+        [HttpPost]
+        [Route("windows/new", Name = "AddNewWindow")]
+        public ResponseAddWindow AddNewWindow([FromBody] RequestAddWindow request)
+        {
+            return aManager.AddWindow(request);
+        }
+
+        [HttpPost]
+        [Route("windows/update/{id:int:required}", Name = "UpdateWindow")]
+        public ResponseUpdateWindow UpdateWindow(int id, [FromBody] RequestUpdateWindow request)
+        {
+            return aManager.UpdateWindow(id, request);
+        }
+
+
+        [HttpPost]
+        [Route("splithouse", Name = "GetSplitHouses")]
+        public ResponseGetSplitHouseCatalog GetSplitHouses([FromBody] RequestGetSplitHouseCatalog request)
+        {
+            return aManager.GetSplitHouses(request);
+        }
+
+        [HttpDelete]
+        [Route("splithouse/{id:int:required}", Name = "DeleteSplitHouse")]
+        public ResponseDeleteSplitHouse DeleteSplitHouse(int id)
+        {
+            return aManager.DeleteSplitHouse(id);
+        }
+
+        [HttpPost]
+        [Route("splithouse/new", Name = "AddSplitHouse")]
+        public ResponseAddSplitHouse AddSplitHouse([FromBody] RequestAddSplitHouse request)
+        {
+            return aManager.AddSplitHouse(request);
+        }
+
+        [HttpPost]
+        [Route("splithouse/update/{id:int:required}", Name = "UpdateSplitHouse")]
+        public ResponseUpdateSplitHouse UpdateSplitHouse(int id, [FromBody] RequestUpdateSplitHouse request)
+        {
+            return aManager.UpdateSplitHouse(id, request);
+        }
+
+        [HttpPost]
+        [Route("workprice", Name = "GetWorkPrice")]
+        public ResponseGetWorkpriceCatalog GetWorkPrice([FromBody] RequestGetWorkprice request)
+        {
+            return aManager.GetWorkprices(request);
+        }
+
+        [HttpDelete]
+        [Route("workprice/{id:int:required}", Name = "DeleteWorkprice")]
+        public ResponseDeleteWorkprice DeleteWorkprice(int id)
+        {
+            return aManager.DeleteWorkprice(id);
+        }
+
+        [HttpPost]
+        [Route("workprice/new", Name = "AddWorkprice")]
+        public ResponseAddWorkprice AddWorkprice([FromBody] RequestAddWorkprice request)
+        {
+            return aManager.AddWorkprice(request);
+        }
+
+        [HttpPost]
+        [Route("workprice/update/{id:int:required}", Name = "UpdateWorkprice")]
+        public ResponseUpdateWorkprice UpdateWorkprice(int id, [FromBody] RequestUpdateWorkprice request)
+        {
+            return aManager.UpdateWorkprice(id, request);
+        }
+
+        [HttpPost]
+        [Route("logos", Name = "GetLogos")]
+        public ResponseGetLogos GetLogos([FromBody] RequestGetLogos request)
+        {
+            return aManager.GetLogos(request);
+        }
+
+        [HttpDelete]
+        [Route("logos/{id:int:required}", Name = "DeleteLogo")]
+        public ResponseDeleteLogo DeleteLogo(int id)
+        {
+            return aManager.DeleteLogo(id);
+        }
+
+
+        [HttpPost]
+        [Route("logos/new", Name = "AddLogo")]
+        public ResponseAddLogo AddLogo([FromBody] RequestAddLogo request)
+        {
+            return aManager.AddLogo(request);
+        }
+    }
+}

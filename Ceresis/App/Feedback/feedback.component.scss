@@ -1,0 +1,90 @@
+﻿
+.contact {
+    background-color: #222;
+    background-image: url(../../images/used-for-fgs-animation.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.contact .section-heading {
+    color: #fff;
+}
+
+.contact .form-group {
+    margin-bottom: 25px;
+}
+
+.contact .form-group input,
+a.contact .form-group textarea {
+    padding: 20px;
+}
+
+.contact .form-group input.form-control {
+    height: auto;
+}
+
+.contact .form-group textarea.form-control {
+    height: 236px;
+}
+
+.contact .form-control:focus {
+    border-color: #1ee2e7;
+    box-shadow: none;
+}
+
+.contact::-webkit-input-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+.contact:-moz-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+.contact::-moz-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+.contact:-ms-input-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+.contact .text-danger {
+    color: #e74c3c;
+}
+
+.filter-button {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 7px 0;
+    max-width: 290px;
+    margin: 0px auto 0;
+    color: #ffffff;
+    border: 1px solid #00bddd;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    text-align: center;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    background: transparent;
+}
+
+.filter-button:hover,
+.filter-button:focus,
+.filter-button.active {
+    background-color: #00bddd;
+    text-decoration: none;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

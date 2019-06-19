@@ -1,0 +1,53 @@
+﻿<mat-dialog-content class="mat-typography">
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Редактировать запись каталога элемента работы</mat-card-title>
+            <form [formGroup]="editForm" autocomplete="off" novalidate (ngSubmit)="editWorkprice(editForm.value)" fxLayout="column wrap"
+                  fxLayoutAlign="center center" fxLayoutGap="30px">
+                <mat-card-content>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Название работы" formControlName="name" id="name">
+                        <mat-error *ngIf="hasError('name', 'required')">Необходимо заполнить название</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <p>Единица работы</p>
+                        <mat-select [(value)]="unity">
+                            <mat-option value="шт">шт</mat-option>
+                            <mat-option value="м">м</mat-option>
+                            <mat-option value="ед">ед</mat-option>
+                            <mat-option value="100 гр">100 гр</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <p>Точная цена</p>
+                        <mat-select [(value)]="priceExact">
+                            <mat-option value="true">Да</mat-option>
+                            <mat-option value="false">Нет</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <p>Договорная цена</p>
+                        <mat-select [(value)]="priceContact" (selectionChange)="changePriceContact($event)">
+                            <mat-option value="true">Да</mat-option>
+                            <mat-option value="false">Нет</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field *ngIf="priceContact=='false'">
+                        <input matInput type="number" placeholder="Цена" formControlName="price" id="price">
+                        <mat-error *ngIf="hasError('price', 'required')">Необходимо заполнить Цена</mat-error>
+                    </mat-form-field>
+
+                </mat-card-content>
+                <mat-card-actions align="center">
+                    <button mat-raised-button color="primary" [disabled]="!editForm.valid">Сохранить</button>
+                    <button type="button" mat-raised-button color="warn" (click)="onCancel()">Отмена</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </section>
+</mat-dialog-content>

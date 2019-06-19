@@ -1,0 +1,18 @@
+﻿<div class="row-header">
+    <div class="container">
+        <p class="header__p">Портфолио наших работ</p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="page10" id="portfolio-gallery" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+
+        <div class="thumbnail single-portfolio" *ngFor="let item of workSamples; index as i;">
+            <a class="gallery-item" [attr.data-caption]="item.description" [href]="item.imagePath">
+                <img class="img-responsive" [src]="item.imagePath" alt="One" />
+            </a>
+        </div>
+
+    </div>
+</div>

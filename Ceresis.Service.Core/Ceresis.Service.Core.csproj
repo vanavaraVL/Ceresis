@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="EmailTemplates\Feedback.html" />
+    <None Remove="EmailTemplates\FeedbackHead.html" />
+    <None Remove="EmailTemplates\Order.html" />
+    <None Remove="EmailTemplates\OrderHead.html" />
+    <None Remove="EmailTemplates\OrderHeadService.html" />
+    <None Remove="EmailTemplates\OrderService.html" />
+    <None Remove="images\431502878865957.png" />
+    <None Remove="images\78761502968147773.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmailTemplates\Feedback.html" />
+    <EmbeddedResource Include="EmailTemplates\FeedbackHead.html" />
+    <EmbeddedResource Include="EmailTemplates\Order.html" />
+    <EmbeddedResource Include="EmailTemplates\OrderHead.html" />
+    <EmbeddedResource Include="EmailTemplates\OrderHeadService.html" />
+    <EmbeddedResource Include="EmailTemplates\OrderService.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ceresis.Data.Core\Ceresis.Data.Core.csproj" />
+    <ProjectReference Include="..\Ceresis.Repository\Ceresis.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.PlatformAbstractions">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.platformabstractions\1.1.0\lib\netstandard1.3\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Configuration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="images\cartItemPath.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\logoPath.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

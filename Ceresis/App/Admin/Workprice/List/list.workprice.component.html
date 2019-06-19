@@ -1,0 +1,63 @@
+﻿
+<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+    <div>
+        <a (click)="createWorkprice()" mat-button color="#FF8A65" class="add-new-item">Добавить новое описание работы в каталог</a>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
+
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Название работы </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="unity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Измерение работы </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.unity}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Цена </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <div *ngIf="element.contactPrice">
+                Рассчитывается индивидуально
+            </div>
+            <div *ngIf="element.contactPrice==false && element.exactPrice">
+                {{element.price}} руб.
+            </div>
+            <div *ngIf="element.contactPrice==false && element.exactPrice==false">
+                от {{element.price}} руб.
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Удалить </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="deleteWorkprice(element.id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+        <mat-header-cell *matHeaderCellDef> Редактировать </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="accent" (click)="editWorkprice(element.id)">
+                <mat-icon class="mat-18">system_update</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator #paginator
+               [length]="pagingAlias.length"
+               [pageIndex]="pagingAlias.pageIndex"
+               [pageSize]="pagingAlias.pageSize"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="loadWorkprices($event)">
+</mat-paginator>

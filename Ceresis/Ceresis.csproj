@@ -1,0 +1,133 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Remove="App\Admin\LogoTypes\Add\add.logotypes.component.ts" />
+    <None Remove="App\Admin\LogoTypes\List\list.logotypes.component.ts" />
+    <None Remove="App\Admin\SplitSystem\Add\add.split.component.ts" />
+    <None Remove="App\Admin\SplitSystem\Edit\edit.split.component.ts" />
+    <None Remove="App\Admin\SplitSystem\List\list.split.component.ts" />
+    <None Remove="App\Admin\Workprice\Add\add.workprice.component.ts" />
+    <None Remove="App\Admin\Workprice\Edit\edit.workprice.component.ts" />
+    <None Remove="App\Admin\Workprice\List\list.workprice.component.ts" />
+    <None Remove="App\Admin\Worksample\Add\add.worksample.component.ts" />
+    <None Remove="App\Admin\General\admin.home.component.ts" />
+    <None Remove="App\Admin\Login\login.component.ts" />
+    <None Remove="App\Admin\Window\Add\add.window.component.ts" />
+    <None Remove="App\Admin\Window\Edit\edit.window.component.ts" />
+    <None Remove="App\Admin\Worksample\List\list.worksample.component.ts" />
+    <None Remove="App\aos.d.ts" />
+    <None Remove="App\Cart\cart.component.ts" />
+    <None Remove="App\Contacts\contacts.component.ts" />
+    <None Remove="App\DTO\base.ts" />
+    <None Remove="App\DTO\cart.dto.ts" />
+    <None Remove="App\DTO\catalog.dto.ts" />
+    <None Remove="App\DTO\feedback.dto.ts" />
+    <None Remove="App\DTO\login.dto.ts" />
+    <None Remove="App\DTO\logotypes.dto.ts" />
+    <None Remove="App\DTO\split.dto.ts" />
+    <None Remove="App\DTO\user.dto.ts" />
+    <None Remove="App\DTO\workprice.dto.ts" />
+    <None Remove="App\DTO\worksample.dto.ts" />
+    <None Remove="App\global.d.ts" />
+    <None Remove="App\main.module.ts" />
+    <None Remove="App\polyfills.ts" />
+    <None Remove="App\routes.name.ts" />
+    <None Remove="App\routes.ts" />
+    <None Remove="App\Services\administration.service.ts" />
+    <None Remove="App\Services\auth.service.ts" />
+    <None Remove="App\Services\catalog.service.ts" />
+    <None Remove="App\Services\customer.service.ts" />
+    <None Remove="App\Services\script.loader.services.ts" />
+    <None Remove="App\Services\worksample.service.ts" />
+    <None Remove="App\Settings\i.setting.ts" />
+    <None Remove="App\Settings\settings.dev.ts" />
+    <None Remove="App\Settings\settings.prod.ts" />
+    <None Remove="App\Settings\settings.ts" />
+    <None Remove="App\vendor.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="2.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.0-preview1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="App\Admin\LogoTypes\Add\add.logotypes.component.ts" />
+    <TypeScriptCompile Include="App\Admin\LogoTypes\List\list.logotypes.component.ts" />
+    <TypeScriptCompile Include="App\Admin\SplitSystem\Add\add.split.component.ts" />
+    <TypeScriptCompile Include="App\Admin\SplitSystem\Edit\edit.split.component.ts" />
+    <TypeScriptCompile Include="App\Admin\SplitSystem\List\list.split.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Workprice\Add\add.workprice.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Workprice\Edit\edit.workprice.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Workprice\List\list.workprice.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Worksample\Add\add.worksample.component.ts" />
+    <TypeScriptCompile Include="App\Admin\General\admin.home.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Login\login.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Worksample\List\list.worksample.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Window\Add\add.window.component.ts" />
+    <TypeScriptCompile Include="App\Admin\Window\Edit\edit.window.component.ts" />
+    <TypeScriptCompile Include="App\aos.d.ts" />
+    <TypeScriptCompile Include="App\Cart\cart.component.ts" />
+    <TypeScriptCompile Include="App\Contacts\contacts.component.ts" />
+    <TypeScriptCompile Include="App\DTO\base.ts" />
+    <TypeScriptCompile Include="App\DTO\cart.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\catalog.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\feedback.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\logotypes.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\workprice.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\login.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\split.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\user.dto.ts" />
+    <TypeScriptCompile Include="App\DTO\worksample.dto.ts" />
+    <TypeScriptCompile Include="App\global.d.ts" />
+    <TypeScriptCompile Include="App\main.module.ts" />
+    <TypeScriptCompile Include="App\polyfills.ts" />
+    <TypeScriptCompile Include="App\routes.name.ts" />
+    <TypeScriptCompile Include="App\routes.ts" />
+    <TypeScriptCompile Include="App\Services\administration.service.ts" />
+    <TypeScriptCompile Include="App\Services\auth.service.ts" />
+    <TypeScriptCompile Include="App\Services\catalog.service.ts" />
+    <TypeScriptCompile Include="App\Services\customer.service.ts" />
+    <TypeScriptCompile Include="App\Services\script.loader.services.ts" />
+    <TypeScriptCompile Include="App\Services\worksample.service.ts" />
+    <TypeScriptCompile Include="App\Settings\i.setting.ts" />
+    <TypeScriptCompile Include="App\Settings\settings.dev.ts" />
+    <TypeScriptCompile Include="App\Settings\settings.prod.ts" />
+    <TypeScriptCompile Include="App\Settings\settings.ts" />
+    <TypeScriptCompile Include="App\vendor.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="fonts\" />
+    <Folder Include="images\hold.system\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ceresis.Data.Core\Ceresis.Data.Core.csproj" />
+    <ProjectReference Include="..\Ceresis.Repository\Ceresis.Repository.csproj" />
+    <ProjectReference Include="..\Ceresis.Service.Core\Ceresis.Service.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,57 @@
+﻿
+<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+    <div>
+        <a (click)="createLogo()" mat-button color="#FF8A65" class="add-new-item">Добавить новый логотип каталог</a>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Имя логотипа </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imageUrl">
+        <mat-header-cell *matHeaderCellDef> Прикрепленное изображение </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <a class="gallery-item" [attr.data-caption]="element.description" [href]="element.imageUrl">
+                <img class="work-sample" [src]="element.imageUrl" alt="One" />
+            </a>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Описание </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> Категория </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imageData">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Адрес пути </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.imageUrl}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Удалить </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="deleteLogo(element.id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator #paginator
+               [length]="pagingAlias.length"
+               [pageIndex]="pagingAlias.pageIndex"
+               [pageSize]="pagingAlias.pageSize"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="loadWorkSamples($event)">
+</mat-paginator>

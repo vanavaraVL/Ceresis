@@ -1,0 +1,30 @@
+2019-04-08 17:09:13.3169 Info Message Template Auto Format enabled
+2019-04-08 17:09:13.3640 Info Loading assembly: NLog.Web.AspNetCore
+2019-04-08 17:09:13.4866 Info Adding target File Target[allfile]
+2019-04-08 17:09:13.4866 Info Adding target File Target[ownFile-web]
+2019-04-08 17:09:13.5001 Info Configured from an XML element in C:\Users\e.markin\Documents\Visual Studio 2017\Projects\Ceresis\Ceresis\nlog.config...
+2019-04-08 17:09:13.5285 Info Found 45 configuration items
+2019-04-08 17:21:16.7829 Info Message Template Auto Format enabled
+2019-04-08 17:21:16.8207 Info Loading assembly: NLog.Web.AspNetCore
+2019-04-08 17:21:16.9077 Info Adding target File Target[allfile]
+2019-04-08 17:21:16.9077 Info Adding target File Target[ownFile-web]
+2019-04-08 17:21:16.9238 Info Configured from an XML element in C:\Users\e.markin\Documents\Visual Studio 2017\Projects\Ceresis\Ceresis\nlog.config...
+2019-04-08 17:21:16.9537 Info Found 45 configuration items
+2019-04-08 17:23:15.9056 Info Message Template Auto Format enabled
+2019-04-08 17:23:15.9347 Info Loading assembly: NLog.Web.AspNetCore
+2019-04-08 17:23:15.9963 Info Adding target File Target[allfile]
+2019-04-08 17:23:15.9963 Info Adding target File Target[ownFile-web]
+2019-04-08 17:23:16.0050 Info Configured from an XML element in C:\Users\e.markin\Documents\Visual Studio 2017\Projects\Ceresis\Ceresis\nlog.config...
+2019-04-08 17:23:16.0228 Info Found 45 configuration items
+2019-04-08 17:29:14.7295 Info Message Template Auto Format enabled
+2019-04-08 17:29:14.7496 Info Loading assembly: NLog.Web.AspNetCore
+2019-04-08 17:29:14.8174 Info Adding target File Target[allfile]
+2019-04-08 17:29:14.8367 Info Adding target File Target[ownFile-web]
+2019-04-08 17:29:14.8367 Info Configured from an XML element in C:\Users\e.markin\Documents\Visual Studio 2017\Projects\Ceresis\Ceresis\nlog.config...
+2019-04-08 17:29:14.8743 Info Found 45 configuration items
+2019-04-08 17:32:44.2234 Info Message Template Auto Format enabled
+2019-04-08 17:32:44.2491 Info Loading assembly: NLog.Web.AspNetCore
+2019-04-08 17:32:44.2958 Info Adding target File Target[allfile]
+2019-04-08 17:32:44.3138 Info Adding target File Target[ownFile-web]
+2019-04-08 17:32:44.3138 Info Configured from an XML element in C:\Users\e.markin\Documents\Visual Studio 2017\Projects\Ceresis\Ceresis\nlog.config...
+2019-04-08 17:32:44.3447 Info Found 45 configuration items

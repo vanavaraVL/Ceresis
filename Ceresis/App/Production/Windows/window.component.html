@@ -1,0 +1,67 @@
+﻿<div class="container-2">
+
+    <section class="page5_1" data-section-name="home">
+        <div class="w_production_description">
+            <p class="f-45 h2-title center">Каталог продукции <span>Окна и двери из ПВХ-профиля</span></p>
+            <p class="description-after center">Типовые конструкции и их описание</p>
+        </div>
+        <a class="scroll-down" address="true" (click)="nextScroll()"></a>
+    </section>
+
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio sectionData" id="portfolio" data-section-name="production" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+        <div class="w_production">
+            <div class="container" style="margin-bottom: 260px;">
+                <div class="row display-flex">
+                    <div class="col-sm-6 col-md-6 order" *ngFor="let item of windows; index as i;">
+                        <div class="thumbnail order-desc">
+                            <img [src]="item.imageUrl" alt="Production">
+                            <div class="caption">
+                                <h3>{{item.name}}</h3>
+                                <div class="row">
+                                    <div class="col-md-7 col-xs-7">
+                                        <p class="block-text_description">Характеристики</p>
+                                    </div>
+                                    <div class="col-md-5 col-xs-5">
+                                        <p class="block-text_description">{{item.feature}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 col-xs-7">
+                                        <p class="block-text_description">Размер</p>
+                                    </div>
+                                    <div class="col-md-5 col-xs-5">
+                                        <p class="block-text_description">{{item.size}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 col-xs-7">
+                                        <p class="block-text_description">Стоимость</p>
+                                    </div>
+                                    <div class="col-md-5 col-xs-5">
+                                        <p class="block-text_description">{{item.total}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a (click)="addToChart(i)" class="next-btn order-btn"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Добавить в корзину</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <a class="scroll-down" address="true" (click)="nextScroll()"></a>
+    </section>
+
+    <!-- About Section -->
+    <section class="sectionData" data-section-name="about">
+        <app-about></app-about>
+    </section>
+
+    <!-- Contact Section-->
+    <section class="sectionData" data-section-name="contact">
+        <app-feedback></app-feedback>
+    </section>
+</div>

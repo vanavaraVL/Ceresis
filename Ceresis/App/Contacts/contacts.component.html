@@ -1,0 +1,115 @@
+﻿<div class="row-header">
+    <div class="container">
+        <p class="header__p">Контакты</p>
+    </div>
+</div>
+
+<section class="container">
+
+    <div class="row page8" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+
+        <div class="col-sm-12" id="parent">
+            <div class="col-sm-6">
+                <iframe width="100%" height="320px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2468.5373312093275!2d55.08201721553317!3d51.77806487968057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417bf0e02689f523%3A0x27d40a861eefff38!2z0KLQsNGI0LrQtdC90YLRgdC60LDRjyDRg9C7LiwgMjgsINCe0YDQtdC90LHRg9GA0LMsINCe0YDQtdC90LHRg9GA0LPRgdC60LDRjyDQvtCx0LsuLCA0NjAwMDY!5e0!3m2!1sru!2sru!4v1554477069158!5m2!1sru!2sru" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-sm-6">
+                <form name="sentMessage" #sentMessageForm="ngForm" id="contactForm" (ngSubmit)="sendMessage()" novalidate="" class="contact-form">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Укажите ваше имя" name="name" #name="ngModel" required [(ngModel)]="feedback.name" autofocus="">
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                            <p *ngIf="name.errors?.required" class="help-block text-danger">Укажите ваше имя</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group form_left">
+                        <input type="email" class="form-control" placeholder="Укажите ваш email" name="email" #email="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" [(ngModel)]="feedback.email">
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <p *ngIf="email.errors?.required" class="help-block text-danger">Требуется указать email для обращения</p>
+                            <p *ngIf="email.errors?.pattern && email.touched" class="help-block text-danger">Введенный email имеет неверный формат</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="phone" type="text" prefix="+7" mask="(000)-000-00-00" [showMaskTyped]="true" placeholder="Контактный мобильный телефон" required name="phone" #phone="ngModel" pattern="\d{10}$" [(ngModel)]="feedback.phone">
+                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                            <p *ngIf="phone.errors?.required" class="help-block text-danger">Укажите контактный телефон для связи</p>
+                            <p *ngIf="phone.errors?.pattern && phone.touched" class="help-block text-danger">Введенный телефон имеет неверный формат</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control textarea-contact" rows="5" id="comment" name="description" placeholder="Введите ваше сообщение..." [(ngModel)]="feedback.message" required #description="ngModel"></textarea>
+                        <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                            <p *ngIf="description.errors?.required" class="help-block text-danger">Укажите ваше обращение</p>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-default btn-send" [disabled]="!sentMessageForm.form.valid"> <span class="glyphicon glyphicon-send" ></span> Отправить </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container second-portion">
+        <div class="row">
+            <!-- Boxes de Acoes -->
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">Почтовый адрес и наш сайт</h3>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> kit-service@inbox.ru
+                                <br>
+                                <br>
+                                <i class="fa fa-globe" aria-hidden="true"></i> www.kit-service56.ru
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">Контактная информация</h3>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i> 8-(3532)-208-400
+                                <br>
+                                <br>
+                                <i class="fa fa-mobile" aria-hidden="true"></i> 8-(903)-360-84-00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">ИНН/ОГРН</h3>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> ИНН 5611081884
+                                <br>
+                                <br>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> ОГРН 1185658003190
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

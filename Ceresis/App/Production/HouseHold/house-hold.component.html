@@ -1,0 +1,107 @@
+﻿<div class="container-2">
+
+    <section class="page4_1" data-section-name="house-hold-system">
+        <div class="w_production_description">
+            <p class="f-45 h2-title center">Каталог продукции <span>бытовых сплит-систем</span></p>
+            <p class="description-after center">Продукция и цены</p>
+        </div>
+        <a class="scroll-down" address="true" (click)="nextScroll()"></a>
+    </section>
+
+    <section class="portfolio sectionData" id="portfolio" data-section-name="house-hold-catalog" [ngBusy]="{busy: busy, message: 'Пожалуйста подождите...'}">
+        <div class="container" style="margin-bottom: 260px;">
+            <div class="row">
+                <div class="gallery col-xs-12 col-sm-4" *ngFor="let item of splitHouses; index as i;">
+                    <div class="card">
+                        <a class="img-card">
+                            <img [src]="item.imageUrl" />
+                        </a>
+                        <br />
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a>
+                                    Модель {{item.model}}
+                                </a>
+                            </h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    Мощность (охлаждение/обогрев), кВт
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.power}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    Потребляемая мощность (охлаждение/обогрев), кВт
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.powerRealty}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    Класс энергоэффективности
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.energoEfficienty}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    Уровень шума, дБ(А)
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.noise}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    Габариты внутреннего блока (ШхВхГ), мм
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.sizeExternal}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    Габариты наружнего блока (ШхВхГ), мм
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.sizeInternal}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    ЦЕНА
+                                </div>
+                                <div class="col-lg-6">
+                                    {{item.price}} ₽
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-read-more">
+                            <a class="btn btn-link btn-block" (click)="putToCart(i)">
+                                Добавить в корзину
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <a class="scroll-down" address="true" (click)="nextScroll()"></a>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="sectionData" data-section-name="about">
+        <app-about></app-about>
+    </section>
+
+    <!-- Contact Section-->
+    <section class="sectionData" data-section-name="contact">
+        <app-feedback></app-feedback>
+    </section>
+
+</div>

@@ -1,0 +1,39 @@
+﻿<mat-dialog-content class="mat-typography">
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Создать новый логотип в каталоге</mat-card-title>
+            <form [formGroup]="createLogoForm" autocomplete="off" novalidate (ngSubmit)="addLogos(createLogoForm.value)" fxLayout="column wrap"
+                  fxLayoutAlign="center center" fxLayoutGap="30px">
+                <mat-card-content>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Название логотипа" formControlName="name" id="name">
+                        <mat-error *ngIf="hasError('name', 'required')">Необходимо заполнить название</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Описание логотипа" formControlName="description" id="description">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <p>Категория логотипа</p>
+                        <mat-select [(value)]="logoType">
+                            <mat-option value="10">Бытовые сплит-системы</mat-option>
+                            <mat-option value="20">Полупромышленные и промышленные сплит-системы</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <hr/>
+
+                    <input type="file" placeholder="Файл примера" accept="image/x-png,image/gif,image/jpeg" formControlName="image" id="image" (change)="handleFileInput($event.target.files)">
+                    <mat-error *ngIf="hasError('image', 'required')">Необходимо прикрепить файл</mat-error>
+
+                </mat-card-content>
+                <mat-card-actions align="center">
+                    <button mat-raised-button color="primary" [disabled]="!createLogoForm.valid">Сохранить</button>
+                    <button type="button" mat-raised-button color="warn" (click)="onCancel()">Отмена</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </section>
+</mat-dialog-content>

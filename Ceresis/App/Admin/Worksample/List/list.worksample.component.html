@@ -1,0 +1,52 @@
+﻿
+<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+    <div>
+        <a (click)="createWorksample()" mat-button color="#FF8A65" class="add-new-item">Добавить новый пример работы в каталог</a>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource" matSort matSortActive="imageName" matSortDirection="asc">
+    <ng-container matColumnDef="imageName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Имя работы </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.imageName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imageData">
+        <mat-header-cell *matHeaderCellDef> Прикрепленное изображение </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <a class="gallery-item" [attr.data-caption]="element.description" [href]="element.imagePath">
+                <img class="work-sample" [src]="element.imagePath" alt="One" />
+            </a>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Описание работы </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imagePath">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Адрес пути </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.imagePath}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Удалить </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="delteWorkItem(element.id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator #paginator
+               [length]="pagingAlias.length"
+               [pageIndex]="pagingAlias.pageIndex"
+               [pageSize]="pagingAlias.pageSize"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="loadWorkSamples($event)">
+</mat-paginator>

@@ -9,3 +9,10 @@ Database Storage: PostgreSQL<br>
 OAuth: RoleBase Authorization using JWT<br>
 Documentation: Swagger<br>
 
+# Deploy
+Ubuntu 16.04, Kestrel, Ngnix, .NET Core
+
+# Production
+Available here: http://kit-service56.ru
+
+

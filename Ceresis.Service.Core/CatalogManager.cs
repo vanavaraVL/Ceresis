@@ -25,118 +25,77 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseGetWindowPlastics();
 
-            try
+            var data = dbManager.GetWindowPlastics().ToList();
+
+            var mData = data.Select(d => new WindowPlasticDTO()
             {
-                var data = dbManager.GetWindowPlastics().ToList();
+                Feature = d.Feature,
+                Name = d.Name,
+                Size = d.Size,
+                Total = $"{string.Format("{0:#.##}", d.Total)} {(d.HasSetup ? "с установкой" : "без установки")}",
+                TotalValue = d.Total,
+                ImageUrl = d.ImageUrl,
+            }).ToList();
 
-                var mData = data.Select(d => new WindowPlasticDTO()
-                {
-                    Feature = d.Feature,
-                    Name = d.Name,
-                    Size = d.Size,
-                    Total = $"{string.Format("{0:#.##}", d.Total)} {(d.HasSetup ? "с установкой" : "без установки")}",
-                    TotalValue = d.Total,
-                    ImageUrl = d.ImageUrl,
-                }).ToList();
-
-                response.Data = mData;
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
-
-            return response;
+            return new ResponseGetWindowPlastics() { Data = mData };
         }
 
         public ResponseGetSplitHouseCatalog GetSplitHouse()
         {
             var response = new ResponseGetSplitHouseCatalog();
 
-            try
+            var data = dbManager.GetSplitHouses().ToList();
+
+            var mData = data.Select(d => new SplitHouseDTO()
             {
-                var data = dbManager.GetSplitHouses().ToList();
+                EnergoEfficienty = d.EnergoEfficienty,
+                ImageUrl = d.ImageUrl,
+                Model = d.Model,
+                Noise = d.Noise,
+                Power = d.Power,
+                PowerRealty = d.PowerRealty,
+                Price = d.Price,
+                SizeExternal = d.SizeExternal,
+                SizeInternal = d.SizeInternal,
+                Id = d.Id
+            }).ToList();
 
-                var mData = data.Select(d => new SplitHouseDTO()
-                {
-                    EnergoEfficienty = d.EnergoEfficienty,
-                    ImageUrl = d.ImageUrl,
-                    Model = d.Model,
-                    Noise = d.Noise,
-                    Power = d.Power,
-                    PowerRealty = d.PowerRealty,
-                    Price = d.Price,
-                    SizeExternal = d.SizeExternal,
-                    SizeInternal = d.SizeInternal,
-                    Id = d.Id
-                }).ToList();
-
-                response.Data = mData;
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
-
-            return response;
+            return new ResponseGetSplitHouseCatalog() { Data = mData };
         }
 
         public ResponseGetWorkpriceCatalog GetWorkpriceCatalog()
         {
-            var response = new ResponseGetWorkpriceCatalog();
+            var data = dbManager.GetWorkprices().ToList();
 
-            try
+            var mData = data.Select(d => new WorkpriceDTO()
             {
-                var data = dbManager.GetWorkprices().ToList();
+                ContactPrice = d.ContactPrice,
+                ExactPrice = d.ExactPrice,
+                Id = d.Id,
+                Name = d.Name,
+                Price = d.Price,
+                Unity = d.Unity
+            }).ToList();
 
-                var mData = data.Select(d => new WorkpriceDTO()
-                {
-                    ContactPrice = d.ContactPrice,
-                    ExactPrice = d.ExactPrice,
-                    Id = d.Id,
-                    Name = d.Name,
-                    Price = d.Price,
-                    Unity = d.Unity
-                }).ToList();
+            return new ResponseGetWorkpriceCatalog() { Data = mData };
 
-                response.Data = mData;
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
-
-            return response;
         }
 
         public ResponseGetLogos GetLogos()
         {
-            var response = new ResponseGetLogos();
+            var data = dbManager.GetLogos().ToList();
 
-            try
+            var mData = data.Select(d => new LogoDTO()
             {
-                var data = dbManager.GetLogos().ToList();
+                Description = d.Description,
+                ImageUrl = d.ImageUrl,
+                Name = d.Name,
+                Type = d.Type.GetDescription(),
+                TypeValue = d.Type
+            }).ToList();
 
-                var mData = data.Select(d => new LogoDTO() {
-                    Description = d.Description,
-                    ImageUrl = d.ImageUrl,
-                    Name = d.Name,
-                    Type = d.Type.GetDescription(),
-                    TypeValue = d.Type
-                }).ToList();
+            return new ResponseGetLogos() { Data = mData };
 
-                response.Data = mData;
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
-
-            return response;
         }
     }
 }

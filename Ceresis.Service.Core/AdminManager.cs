@@ -32,22 +32,13 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseGetAllWorkSamples(request?.Paging);
 
-            try
-            {
-                var data = dbManager.GetWorksamples();
+            var data = dbManager.GetWorksamples();
 
-                var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
+            var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
 
-                var cData = result.Select(t => new WorkSample() { Description = t.Description, ImageName = t.ImageName, ImagePath = t.ImagePath, Id = t.Id }).ToList();
+            var cData = result.Select(t => new WorkSample() { Description = t.Description, ImageName = t.ImageName, ImagePath = t.ImagePath, Id = t.Id }).ToList();
 
-                response.Data = cData;
-
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            response.Data = cData;
 
             return response;
         }
@@ -56,30 +47,21 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseGetLogos(request?.Paging);
 
-            try
+            var data = dbManager.GetLogos();
+
+            var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
+
+            var cData = result.Select(t => new LogoDTO()
             {
-                var data = dbManager.GetLogos();
+                Description = t.Description,
+                Id = t.Id,
+                ImageUrl = t.ImageUrl,
+                Name = t.Name,
+                Type = t.Type.GetDescription(),
+                TypeValue = t.Type
+            }).ToList();
 
-                var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
-
-                var cData = result.Select(t => new LogoDTO()
-                {
-                    Description = t.Description,
-                    Id = t.Id,
-                    ImageUrl = t.ImageUrl,
-                    Name = t.Name,
-                    Type = t.Type.GetDescription(),
-                    TypeValue = t.Type
-                }).ToList();
-
-                response.Data = cData;
-
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            response.Data = cData;
 
             return response;
         }
@@ -88,31 +70,24 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseGetWindowPlastics(request?.Paging);
 
-            try
+            var data = dbManager.GetWindowPlastics();
+
+            var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
+
+            var cData = result.Select(t => new WindowPlasticDTO()
             {
-                var data = dbManager.GetWindowPlastics();
+                Id = t.Id,
+                Feature = t.Feature,
+                ImageUrl = t.ImageUrl,
+                Name = t.Name,
+                Size = t.Size,
+                TotalValue = t.Total,
+                HasSetup = t.HasSetup,
+                Total = $"{string.Format("{0:#.##}", t.Total)} {(t.HasSetup ? "с установкой" : "без установки")}",
+            }).ToList();
 
-                var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
+            response.Data = cData;
 
-                var cData = result.Select(t => new WindowPlasticDTO() {
-                    Id = t.Id,
-                    Feature = t.Feature,
-                    ImageUrl = t.ImageUrl,
-                    Name = t.Name,
-                    Size = t.Size,
-                    TotalValue = t.Total,
-                    HasSetup = t.HasSetup,
-                    Total = $"{string.Format("{0:#.##}", t.Total)} {(t.HasSetup ? "с установкой" : "без установки")}",
-                }).ToList();
-
-                response.Data = cData;
-
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
 
             return response;
         }
@@ -121,34 +96,25 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseGetSplitHouseCatalog(request?.Paging);
 
-            try
+            var data = dbManager.GetSplitHouses();
+
+            var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
+
+            var cData = result.Select(t => new SplitHouseDTO()
             {
-                var data = dbManager.GetSplitHouses();
+                Id = t.Id,
+                EnergoEfficienty = t.EnergoEfficienty,
+                ImageUrl = t.ImageUrl,
+                Model = t.Model,
+                Noise = t.Noise,
+                Power = t.Power,
+                PowerRealty = t.PowerRealty,
+                Price = t.Price,
+                SizeExternal = t.SizeExternal,
+                SizeInternal = t.SizeInternal
+            }).ToList();
 
-                var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
-
-                var cData = result.Select(t => new SplitHouseDTO()
-                {
-                    Id = t.Id,
-                    EnergoEfficienty = t.EnergoEfficienty,
-                    ImageUrl = t.ImageUrl,
-                    Model = t.Model,
-                    Noise = t.Noise,
-                    Power = t.Power,
-                    PowerRealty = t.PowerRealty,
-                    Price = t.Price,
-                    SizeExternal = t.SizeExternal,
-                    SizeInternal = t.SizeInternal
-                }).ToList();
-
-                response.Data = cData;
-
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            response.Data = cData;
 
             return response;
         }
@@ -157,30 +123,21 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseGetWorkpriceCatalog(request?.Paging);
 
-            try
+            var data = dbManager.GetWorkprices();
+
+            var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
+
+            var cData = result.Select(t => new WorkpriceDTO()
             {
-                var data = dbManager.GetWorkprices();
+                ContactPrice = t.ContactPrice,
+                ExactPrice = t.ExactPrice,
+                Id = t.Id,
+                Name = t.Name,
+                Price = t.Price,
+                Unity = t.Unity
+            }).ToList();
 
-                var result = data.Sorting(request?.Sorting).Pagination(response.Paging).ToList();
-
-                var cData = result.Select(t => new WorkpriceDTO()
-                {
-                    ContactPrice = t.ContactPrice,
-                    ExactPrice = t.ExactPrice,
-                    Id = t.Id,
-                    Name = t.Name,
-                    Price = t.Price,
-                    Unity = t.Unity
-                }).ToList();
-
-                response.Data = cData;
-
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            response.Data = cData;
 
             return response;
         }
@@ -189,16 +146,7 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseDeleteWorkSample();
 
-
-            try
-            {
-                dbManager.RemoveWorkSample(id);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.RemoveWorkSample(id);
 
             return response;
         }
@@ -207,16 +155,7 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseDeleteLogo();
 
-
-            try
-            {
-                dbManager.RemoveLogo(id);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.RemoveLogo(id);
 
             return response;
         }
@@ -225,16 +164,7 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseDeleteSplitHouse();
 
-
-            try
-            {
-                dbManager.RemoveSplitHouse(id);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.RemoveSplitHouse(id);
 
             return response;
         }
@@ -243,16 +173,7 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseDeleteWorkprice();
 
-
-            try
-            {
-                dbManager.RemoveWorkprice(id);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.RemoveWorkprice(id);
 
             return response;
         }
@@ -261,16 +182,7 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseDeleteWindow();
 
-
-            try
-            {
-                dbManager.RemoveWindowPlastic(id);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.RemoveWindowPlastic(id);
 
             return response;
         }
@@ -279,24 +191,16 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseAddNewWorksample();
 
-            try
-            {
-                var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, WORKPLACE_DIRECTORY);
+            var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, WORKPLACE_DIRECTORY);
 
-                var item = new WorkExample()
-                {
-                    Description = request.Description,
-                    ImageName = request.FileName,
-                    ImagePath = imagePath
-                };
-
-                dbManager.AddNewWorksample(item);
-            }
-            catch (Exception ex)
+            var item = new WorkExample()
             {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+                Description = request.Description,
+                ImageName = request.FileName,
+                ImagePath = imagePath
+            };
+
+            dbManager.AddNewWorksample(item);
 
             return response;
         }
@@ -305,25 +209,17 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseAddLogo();
 
-            try
-            {
-                var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
+            var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
 
-                var item = new LogoType()
-                {
-                    Description = request.Description,
-                    ImageUrl = imagePath,
-                    Name = request.Name,
-                    Type = request.TypeValue
-                };
-
-                dbManager.AddLogo(item);
-            }
-            catch (Exception ex)
+            var item = new LogoType()
             {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+                Description = request.Description,
+                ImageUrl = imagePath,
+                Name = request.Name,
+                Type = request.TypeValue
+            };
+
+            dbManager.AddLogo(item);
 
             return response;
         }
@@ -332,30 +228,22 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseAddSplitHouse();
 
-            try
-            {
-                var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
+            var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
 
-                var item = new SplitHouse()
-                {
-                    ImageUrl = imagePath,
-                    EnergoEfficienty = request.EnergoEfficienty,
-                    Model = request.Model,
-                    Noise = request.Noise,
-                    Power = request.Power,
-                    PowerRealty = request.PowerRealty,
-                    Price = request.Price,
-                    SizeExternal = request.SizeExternal,
-                    SizeInternal = request.SizeInternal
-                };
-
-                dbManager.AddNewSplitHouse(item);
-            }
-            catch (Exception ex)
+            var item = new SplitHouse()
             {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+                ImageUrl = imagePath,
+                EnergoEfficienty = request.EnergoEfficienty,
+                Model = request.Model,
+                Noise = request.Noise,
+                Power = request.Power,
+                PowerRealty = request.PowerRealty,
+                Price = request.Price,
+                SizeExternal = request.SizeExternal,
+                SizeInternal = request.SizeInternal
+            };
+
+            dbManager.AddNewSplitHouse(item);
 
             return response;
         }
@@ -364,24 +252,16 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseAddWorkprice();
 
-            try
+            var item = new WorkPrice()
             {
-                var item = new WorkPrice()
-                {
-                    ContactPrice = request.ContactPrice,
-                    ExactPrice = request.ExactPrice,
-                    Name = request.Name,
-                    Price = request.Price,
-                    Unity = request.Unity
-                };
+                ContactPrice = request.ContactPrice,
+                ExactPrice = request.ExactPrice,
+                Name = request.Name,
+                Price = request.Price,
+                Unity = request.Unity
+            };
 
-                dbManager.AddWorkprice(item);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.AddWorkprice(item);
 
             return response;
         }
@@ -390,27 +270,19 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseAddWindow();
 
-            try
-            {
-                var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
+            var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
 
-                var item = new WindowPlastic()
-                {
-                    Feature = request.Feature,
-                    HasSetup = request.HasSetup,
-                    ImageUrl = imagePath,
-                    Name = request.Name,
-                    Size = request.Size,
-                    Total = request.Total
-                };
-
-                dbManager.AddNewWindowPlastics(item);
-            }
-            catch (Exception ex)
+            var item = new WindowPlastic()
             {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+                Feature = request.Feature,
+                HasSetup = request.HasSetup,
+                ImageUrl = imagePath,
+                Name = request.Name,
+                Size = request.Size,
+                Total = request.Total
+            };
+
+            dbManager.AddNewWindowPlastics(item);
 
             return response;
         }
@@ -419,36 +291,28 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseUpdateWindow();
 
-            try
+            var imagePath = string.Empty;
+
+            if (!(string.IsNullOrEmpty(request.FileData) || string.IsNullOrEmpty(request.FileName)))
+                imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
+
+            var windowItem = dbManager.GetById(id);
+            if (windowItem == null)
+                throw new Exception("Не найдено ПВХ окно в БД");
+
+            windowItem.Name = request.Name;
+            windowItem.Feature = request.Feature;
+            windowItem.HasSetup = request.HasSetup;
+
+            if (!string.IsNullOrEmpty(imagePath))
             {
-                var imagePath = string.Empty;
-
-                if (!(string.IsNullOrEmpty(request.FileData) || string.IsNullOrEmpty(request.FileName)))
-                    imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
-
-                var windowItem = dbManager.GetById(id);
-                if (windowItem == null)
-                    throw new Exception("Не найдено ПВХ окно в БД");
-
-                windowItem.Name = request.Name;
-                windowItem.Feature = request.Feature;
-                windowItem.HasSetup = request.HasSetup;
-
-                if (!string.IsNullOrEmpty(imagePath))
-                {
-                    windowItem.ImageUrl = imagePath;
-                }
-
-                windowItem.Size = request.Size;
-                windowItem.Total = request.Total;
-
-                dbManager.UpdateWindowPlastic(windowItem);
+                windowItem.ImageUrl = imagePath;
             }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+
+            windowItem.Size = request.Size;
+            windowItem.Total = request.Total;
+
+            dbManager.UpdateWindowPlastic(windowItem);
 
             return response;
         }
@@ -457,38 +321,30 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseUpdateSplitHouse();
 
-            try
+            var imagePath = string.Empty;
+
+            if (!(string.IsNullOrEmpty(request.FileData) || string.IsNullOrEmpty(request.FileName)))
+                imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
+
+            var splitHouseItem = dbManager.GetSplitHouseById(id);
+            if (splitHouseItem == null)
+                throw new Exception("Не найдена Сплит-система в БД");
+
+            splitHouseItem.EnergoEfficienty = request.EnergoEfficienty;
+            splitHouseItem.Model = request.Model;
+            splitHouseItem.Noise = request.Noise;
+            splitHouseItem.Power = request.Power;
+            splitHouseItem.PowerRealty = request.PowerRealty;
+            splitHouseItem.Price = request.Price;
+            splitHouseItem.SizeExternal = request.SizeExternal;
+            splitHouseItem.SizeInternal = request.SizeInternal;
+
+            if (!string.IsNullOrEmpty(imagePath))
             {
-                var imagePath = string.Empty;
-
-                if (!(string.IsNullOrEmpty(request.FileData) || string.IsNullOrEmpty(request.FileName)))
-                    imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
-
-                var splitHouseItem = dbManager.GetSplitHouseById(id);
-                if (splitHouseItem == null)
-                    throw new Exception("Не найдена Сплит-система в БД");
-
-                splitHouseItem.EnergoEfficienty = request.EnergoEfficienty;
-                splitHouseItem.Model = request.Model;
-                splitHouseItem.Noise = request.Noise;
-                splitHouseItem.Power = request.Power;
-                splitHouseItem.PowerRealty = request.PowerRealty;
-                splitHouseItem.Price = request.Price;
-                splitHouseItem.SizeExternal = request.SizeExternal;
-                splitHouseItem.SizeInternal = request.SizeInternal;
-
-                if (!string.IsNullOrEmpty(imagePath))
-                {
-                    splitHouseItem.ImageUrl = imagePath;
-                }
-
-                dbManager.UpdateSplitHouse(splitHouseItem);
+                splitHouseItem.ImageUrl = imagePath;
             }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+
+            dbManager.UpdateSplitHouse(splitHouseItem);
 
             return response;
         }
@@ -497,25 +353,17 @@ namespace Ceresis.Service.Core
         {
             var response = new ResponseUpdateWorkprice();
 
-            try
-            {
-                var workpriceItem = dbManager.GetWorkpriceById(id);
-                if (workpriceItem == null)
-                    throw new Exception("Не найдена работа в БД");
+            var workpriceItem = dbManager.GetWorkpriceById(id);
+            if (workpriceItem == null)
+                throw new Exception("Не найдена работа в БД");
 
-                workpriceItem.ContactPrice = request.ContactPrice;
-                workpriceItem.ExactPrice = request.ExactPrice;
-                workpriceItem.Name = request.Name;
-                workpriceItem.Price = request.Price;
-                workpriceItem.Unity = request.Unity;
+            workpriceItem.ContactPrice = request.ContactPrice;
+            workpriceItem.ExactPrice = request.ExactPrice;
+            workpriceItem.Name = request.Name;
+            workpriceItem.Price = request.Price;
+            workpriceItem.Unity = request.Unity;
 
-                dbManager.UpdateWorkprice(workpriceItem);
-            }
-            catch (Exception ex)
-            {
-                response.IsError = true;
-                response.Message = ex.Message;
-            }
+            dbManager.UpdateWorkprice(workpriceItem);
 
             return response;
         }

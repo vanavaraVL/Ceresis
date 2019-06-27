@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Ceresis.Data.Core.Response;
+using Ceresis.Data.Core.Wrappers;
 using Ceresis.Service.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,21 +26,21 @@ namespace Ceresis.Controllers
         [Route("windows/all", Name = "GetAllWindowCatalog")]
         public ResponseGetWindowPlastics GetWindowsCatalog()
         {
-            return catalogManager.GetWindows();
+            return ExecuteWrapper.Execute(() => { return catalogManager.GetWindows(); });
         }
 
         [HttpGet]
         [Route("splithouse/all", Name = "GetSplitHouseCatalog")]
         public ResponseGetSplitHouseCatalog GetSplitHouseCatalog()
         {
-            return catalogManager.GetSplitHouse();
+            return ExecuteWrapper.Execute(() => { return catalogManager.GetSplitHouse(); });
         }
 
         [HttpGet]
         [Route("workprice/all", Name = "GetWorkpriceCatalog")]
         public ResponseGetWorkpriceCatalog GetWorkpriceCatalog()
         {
-            return catalogManager.GetWorkpriceCatalog();
+            return ExecuteWrapper.Execute(() => { return catalogManager.GetWorkpriceCatalog(); });
         }
 
 
@@ -47,7 +48,7 @@ namespace Ceresis.Controllers
         [Route("logos/all", Name = "GetLogosCatalog")]
         public ResponseGetLogos GetLogos()
         {
-            return catalogManager.GetLogos();
+            return ExecuteWrapper.Execute(() => { return catalogManager.GetLogos(); });
         }
     }
 }

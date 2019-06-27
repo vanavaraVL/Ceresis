@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ceresis.Data.Core.Request;
 using Ceresis.Data.Core.Response;
+using Ceresis.Data.Core.Wrappers;
 using Ceresis.Service.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace Ceresis.Controllers
         [Route("", Name = "GetWorkAllWorkSamples")]
         public ResponseGetAllWorkSamples GetWorkSamples()
         {
-            return aManager.GetWorkSamples();
+            return ExecuteWrapper.Execute(() => { return aManager.GetWorkSamples(); });
         }
     }
 }

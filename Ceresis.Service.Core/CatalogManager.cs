@@ -23,8 +23,6 @@ namespace Ceresis.Service.Core
 
         public ResponseGetWindowPlastics GetWindows()
         {
-            var response = new ResponseGetWindowPlastics();
-
             var data = dbManager.GetWindowPlastics().ToList();
 
             var mData = data.Select(d => new WindowPlasticDTO()
@@ -42,8 +40,6 @@ namespace Ceresis.Service.Core
 
         public ResponseGetSplitHouseCatalog GetSplitHouse()
         {
-            var response = new ResponseGetSplitHouseCatalog();
-
             var data = dbManager.GetSplitHouses().ToList();
 
             var mData = data.Select(d => new SplitHouseDTO()

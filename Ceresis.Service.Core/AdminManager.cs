@@ -144,53 +144,41 @@ namespace Ceresis.Service.Core
 
         public ResponseDeleteWorkSample DeleteWorkSample(int id)
         {
-            var response = new ResponseDeleteWorkSample();
-
             dbManager.RemoveWorkSample(id);
 
-            return response;
+            return new ResponseDeleteWorkSample();
         }
 
         public ResponseDeleteLogo DeleteLogo(int id)
         {
-            var response = new ResponseDeleteLogo();
-
             dbManager.RemoveLogo(id);
 
-            return response;
+            return new ResponseDeleteLogo();
         }
 
         public ResponseDeleteSplitHouse DeleteSplitHouse(int id)
         {
-            var response = new ResponseDeleteSplitHouse();
-
             dbManager.RemoveSplitHouse(id);
 
-            return response;
+            return new ResponseDeleteSplitHouse();
         }
 
         public ResponseDeleteWorkprice DeleteWorkprice(int id)
         {
-            var response = new ResponseDeleteWorkprice();
-
             dbManager.RemoveWorkprice(id);
 
-            return response;
+            return new ResponseDeleteWorkprice();
         }
 
         public ResponseDeleteWindow DeleteWindow(int id)
         {
-            var response = new ResponseDeleteWindow();
-
             dbManager.RemoveWindowPlastic(id);
 
-            return response;
+            return new ResponseDeleteWindow();
         }
 
         public ResponseAddNewWorksample AddWorksample(RequestAddNewWorksample request)
         {
-            var response = new ResponseAddNewWorksample();
-
             var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, WORKPLACE_DIRECTORY);
 
             var item = new WorkExample()
@@ -202,13 +190,11 @@ namespace Ceresis.Service.Core
 
             dbManager.AddNewWorksample(item);
 
-            return response;
+            return new ResponseAddNewWorksample();
         }
 
         public ResponseAddLogo AddLogo(RequestAddLogo request)
         {
-            var response = new ResponseAddLogo();
-
             var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
 
             var item = new LogoType()
@@ -221,13 +207,11 @@ namespace Ceresis.Service.Core
 
             dbManager.AddLogo(item);
 
-            return response;
+            return new ResponseAddLogo();
         }
 
         public ResponseAddSplitHouse AddSplitHouse(RequestAddSplitHouse request)
         {
-            var response = new ResponseAddSplitHouse();
-
             var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
 
             var item = new SplitHouse()
@@ -245,13 +229,11 @@ namespace Ceresis.Service.Core
 
             dbManager.AddNewSplitHouse(item);
 
-            return response;
+            return new ResponseAddSplitHouse();
         }
 
         public ResponseAddWorkprice AddWorkprice(RequestAddWorkprice request)
         {
-            var response = new ResponseAddWorkprice();
-
             var item = new WorkPrice()
             {
                 ContactPrice = request.ContactPrice,
@@ -263,13 +245,11 @@ namespace Ceresis.Service.Core
 
             dbManager.AddWorkprice(item);
 
-            return response;
+            return new ResponseAddWorkprice();
         }
 
         public ResponseAddWindow AddWindow(RequestAddWindow request)
         {
-            var response = new ResponseAddWindow();
-
             var imagePath = SaveImageToWorksampleDirectory(request.FileName, request.FileData, CATALOG_DIRECTORY);
 
             var item = new WindowPlastic()
@@ -284,13 +264,11 @@ namespace Ceresis.Service.Core
 
             dbManager.AddNewWindowPlastics(item);
 
-            return response;
+            return new ResponseAddWindow();
         }
 
         public ResponseUpdateWindow UpdateWindow(int id, RequestUpdateWindow request)
         {
-            var response = new ResponseUpdateWindow();
-
             var imagePath = string.Empty;
 
             if (!(string.IsNullOrEmpty(request.FileData) || string.IsNullOrEmpty(request.FileName)))
@@ -314,13 +292,11 @@ namespace Ceresis.Service.Core
 
             dbManager.UpdateWindowPlastic(windowItem);
 
-            return response;
+            return new ResponseUpdateWindow();
         }
 
         public ResponseUpdateSplitHouse UpdateSplitHouse(int id, RequestUpdateSplitHouse request)
         {
-            var response = new ResponseUpdateSplitHouse();
-
             var imagePath = string.Empty;
 
             if (!(string.IsNullOrEmpty(request.FileData) || string.IsNullOrEmpty(request.FileName)))
@@ -346,13 +322,11 @@ namespace Ceresis.Service.Core
 
             dbManager.UpdateSplitHouse(splitHouseItem);
 
-            return response;
+            return new ResponseUpdateSplitHouse(); ;
         }
 
         public ResponseUpdateWorkprice UpdateWorkprice(int id, RequestUpdateWorkprice request)
         {
-            var response = new ResponseUpdateWorkprice();
-
             var workpriceItem = dbManager.GetWorkpriceById(id);
             if (workpriceItem == null)
                 throw new Exception("Не найдена работа в БД");
@@ -365,7 +339,7 @@ namespace Ceresis.Service.Core
 
             dbManager.UpdateWorkprice(workpriceItem);
 
-            return response;
+            return new ResponseUpdateWorkprice();
         }
 
         private string SaveImageToWorksampleDirectory(string fileName, string base64fileContent, string directory)

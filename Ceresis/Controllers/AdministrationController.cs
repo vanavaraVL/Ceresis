@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Ceresis.Data.Core.Model;
+using Ceresis.Data.Core.Model.Paging;
+using Ceresis.Data.Core.Model.Sorting;
 using Ceresis.Data.Core.Request;
 using Ceresis.Data.Core.Response;
 using Ceresis.Service.Core;
@@ -27,9 +29,9 @@ namespace Ceresis.Controllers
             this.aManager = aManager;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("worksamples", Name = "GetWorkSamples")]
-        public ResponseGetAllWorkSamples GetWorkSamples([FromBody] RequestGetWorkSamples request)
+        public ResponseGetAllWorkSamples GetWorkSamples([FromQuery] RequestGetWorkSamples request)
         {
             return aManager.GetWorkSamples(request);
         }
@@ -49,9 +51,9 @@ namespace Ceresis.Controllers
             return aManager.AddWorksample(request);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("windows", Name = "GetWindowPlastics")]
-        public ResponseGetWindowPlastics GetWindowPlastics([FromBody] RequestGetWindowPlastics request)
+        public ResponseGetWindowPlastics GetWindowPlastics([FromQuery] RequestGetWindowPlastics request)
         {
             return aManager.GetWindowPlastics(request);
         }
@@ -78,9 +80,9 @@ namespace Ceresis.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         [Route("splithouse", Name = "GetSplitHouses")]
-        public ResponseGetSplitHouseCatalog GetSplitHouses([FromBody] RequestGetSplitHouseCatalog request)
+        public ResponseGetSplitHouseCatalog GetSplitHouses([FromQuery] RequestGetSplitHouseCatalog request)
         {
             return aManager.GetSplitHouses(request);
         }
@@ -106,9 +108,9 @@ namespace Ceresis.Controllers
             return aManager.UpdateSplitHouse(id, request);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("workprice", Name = "GetWorkPrice")]
-        public ResponseGetWorkpriceCatalog GetWorkPrice([FromBody] RequestGetWorkprice request)
+        public ResponseGetWorkpriceCatalog GetWorkPrice([FromQuery] RequestGetWorkprice request)
         {
             return aManager.GetWorkprices(request);
         }
@@ -134,9 +136,9 @@ namespace Ceresis.Controllers
             return aManager.UpdateWorkprice(id, request);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("logos", Name = "GetLogos")]
-        public ResponseGetLogos GetLogos([FromBody] RequestGetLogos request)
+        public ResponseGetLogos GetLogos([FromQuery] RequestGetLogos request)
         {
             return aManager.GetLogos(request);
         }

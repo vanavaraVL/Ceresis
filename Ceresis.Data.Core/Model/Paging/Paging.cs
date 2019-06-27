@@ -6,6 +6,11 @@ namespace Ceresis.Data.Core.Model.Paging
 {
     public class Paging: IPaging
     {
+        public Paging()
+        {
+
+        }
+
         public Paging(int length, int page, int pageSize)
         {
             Length = length;

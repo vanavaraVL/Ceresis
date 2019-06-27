@@ -28,3 +28,136 @@
 2019-04-08 17:32:44.3138 Info Adding target File Target[ownFile-web]
 2019-04-08 17:32:44.3138 Info Configured from an XML element in C:\Users\e.markin\Documents\Visual Studio 2017\Projects\Ceresis\Ceresis\nlog.config...
 2019-04-08 17:32:44.3447 Info Found 45 configuration items
+2019-06-27 16:29:26.4920 Info Message Template Auto Format enabled
+2019-06-27 16:29:26.5077 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:29:26.5841 Info Adding target File Target[allfile]
+2019-06-27 16:29:26.6194 Info Adding target File Target[ownFile-web]
+2019-06-27 16:29:26.6351 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:29:26.6673 Info Found 47 configuration items
+2019-06-27 16:32:50.8049 Info Message Template Auto Format enabled
+2019-06-27 16:32:50.8271 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:32:50.9514 Info Adding target File Target[allfile]
+2019-06-27 16:32:51.0039 Info Adding target File Target[ownFile-web]
+2019-06-27 16:32:51.0200 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:32:51.0728 Info Found 47 configuration items
+2019-06-27 16:34:00.8728 Info Message Template Auto Format enabled
+2019-06-27 16:34:00.8728 Info Message Template Auto Format enabled
+2019-06-27 16:34:00.8888 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:34:00.8888 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:34:01.0404 Info Adding target File Target[allfile]
+2019-06-27 16:34:01.0404 Info Adding target File Target[allfile]
+2019-06-27 16:34:01.1025 Info Adding target File Target[ownFile-web]
+2019-06-27 16:34:01.1025 Info Adding target File Target[ownFile-web]
+2019-06-27 16:34:01.1266 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:34:01.1266 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:34:01.1865 Info Found 47 configuration items
+2019-06-27 16:34:01.2848 Info Closing old configuration.
+2019-06-27 16:34:01.3383 Info Found 47 configuration items
+2019-06-27 16:37:48.8435 Info Message Template Auto Format enabled
+2019-06-27 16:37:48.8435 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:37:48.9046 Info Adding target File Target[allfile]
+2019-06-27 16:37:48.9241 Info Adding target File Target[ownFile-web]
+2019-06-27 16:37:48.9241 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:37:48.9532 Info Found 47 configuration items
+2019-06-27 16:39:46.2880 Info Message Template Auto Format enabled
+2019-06-27 16:39:46.3024 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:39:46.3566 Info Adding target File Target[allfile]
+2019-06-27 16:39:46.3750 Info Adding target File Target[ownFile-web]
+2019-06-27 16:39:46.3750 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:39:46.4072 Info Found 47 configuration items
+2019-06-27 16:43:01.4792 Info Message Template Auto Format enabled
+2019-06-27 16:43:01.5287 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:43:01.7877 Info Adding target File Target[allfile]
+2019-06-27 16:43:01.8214 Info Adding target File Target[ownFile-web]
+2019-06-27 16:43:01.8370 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:43:01.8936 Info Found 47 configuration items
+2019-06-27 16:44:58.0285 Info Message Template Auto Format enabled
+2019-06-27 16:44:58.0439 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:44:58.1159 Info Adding target File Target[allfile]
+2019-06-27 16:44:58.1426 Info Adding target File Target[ownFile-web]
+2019-06-27 16:44:58.1543 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:44:58.1981 Info Found 47 configuration items
+2019-06-27 16:46:09.1556 Info Message Template Auto Format enabled
+2019-06-27 16:46:09.1719 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:46:09.2567 Info Adding target File Target[allfile]
+2019-06-27 16:46:09.2913 Info Adding target File Target[ownFile-web]
+2019-06-27 16:46:09.3040 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:46:09.3398 Info Found 47 configuration items
+2019-06-27 16:50:27.0916 Info Message Template Auto Format enabled
+2019-06-27 16:50:27.0916 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:50:27.1597 Info Adding target File Target[allfile]
+2019-06-27 16:50:27.1773 Info Adding target File Target[ownFile-web]
+2019-06-27 16:50:27.1851 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:50:27.2087 Info Found 47 configuration items
+2019-06-27 16:53:23.6954 Info Message Template Auto Format enabled
+2019-06-27 16:53:23.7121 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:53:23.7863 Info Adding target File Target[allfile]
+2019-06-27 16:53:23.8163 Info Adding target File Target[ownFile-web]
+2019-06-27 16:53:23.8269 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:53:23.8618 Info Found 47 configuration items
+2019-06-27 16:58:45.1173 Info Message Template Auto Format enabled
+2019-06-27 16:58:45.1306 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 16:58:45.1881 Info Adding target File Target[allfile]
+2019-06-27 16:58:45.2109 Info Adding target File Target[ownFile-web]
+2019-06-27 16:58:45.2192 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 16:58:45.2429 Info Found 47 configuration items
+2019-06-27 17:02:20.4179 Info Message Template Auto Format enabled
+2019-06-27 17:02:20.4645 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:02:20.6398 Info Adding target File Target[allfile]
+2019-06-27 17:02:20.7007 Info Adding target File Target[ownFile-web]
+2019-06-27 17:02:20.7336 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:02:20.8094 Info Found 47 configuration items
+2019-06-27 17:21:53.6476 Info Message Template Auto Format enabled
+2019-06-27 17:21:53.6620 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:21:53.7216 Info Adding target File Target[allfile]
+2019-06-27 17:21:53.7421 Info Adding target File Target[ownFile-web]
+2019-06-27 17:21:53.7519 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:21:53.7754 Info Found 47 configuration items
+2019-06-27 17:23:58.5852 Info Message Template Auto Format enabled
+2019-06-27 17:23:58.5986 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:23:58.6699 Info Adding target File Target[allfile]
+2019-06-27 17:23:58.7005 Info Adding target File Target[ownFile-web]
+2019-06-27 17:23:58.7107 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:23:58.7493 Info Found 47 configuration items
+2019-06-27 17:25:26.0170 Info Message Template Auto Format enabled
+2019-06-27 17:25:26.0329 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:25:26.1035 Info Adding target File Target[allfile]
+2019-06-27 17:25:26.1372 Info Adding target File Target[ownFile-web]
+2019-06-27 17:25:26.1497 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:25:26.1802 Info Found 47 configuration items
+2019-06-27 17:27:09.8440 Info Message Template Auto Format enabled
+2019-06-27 17:27:09.8686 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:27:09.9717 Info Adding target File Target[allfile]
+2019-06-27 17:27:10.0042 Info Adding target File Target[ownFile-web]
+2019-06-27 17:27:10.0179 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:27:10.0568 Info Found 47 configuration items
+2019-06-27 17:30:04.9551 Info Message Template Auto Format enabled
+2019-06-27 17:30:04.9713 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:30:05.0486 Info Adding target File Target[allfile]
+2019-06-27 17:30:05.0793 Info Adding target File Target[ownFile-web]
+2019-06-27 17:30:05.0793 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:30:05.1259 Info Found 47 configuration items
+2019-06-27 17:46:58.2494 Info Message Template Auto Format enabled
+2019-06-27 17:46:58.2692 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:46:58.3495 Info Adding target File Target[allfile]
+2019-06-27 17:46:58.3734 Info Adding target File Target[ownFile-web]
+2019-06-27 17:46:58.3854 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:46:58.4140 Info Found 47 configuration items
+2019-06-27 17:49:21.7664 Info Message Template Auto Format enabled
+2019-06-27 17:49:21.7841 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:49:21.8770 Info Adding target File Target[allfile]
+2019-06-27 17:49:21.9057 Info Adding target File Target[ownFile-web]
+2019-06-27 17:49:21.9222 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:49:21.9513 Info Found 47 configuration items
+2019-06-27 17:57:29.7043 Info Message Template Auto Format enabled
+2019-06-27 17:57:29.7203 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 17:57:29.7923 Info Adding target File Target[allfile]
+2019-06-27 17:57:29.8226 Info Adding target File Target[ownFile-web]
+2019-06-27 17:57:29.8226 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 17:57:29.8696 Info Found 47 configuration items
+2019-06-27 18:00:08.6595 Info Message Template Auto Format enabled
+2019-06-27 18:00:08.6928 Info Loading assembly: NLog.Web.AspNetCore
+2019-06-27 18:00:08.8710 Info Adding target File Target[allfile]
+2019-06-27 18:00:08.9356 Info Adding target File Target[ownFile-web]
+2019-06-27 18:00:08.9606 Info Configured from an XML element in C:\Users\e.markin\source\repos\Ceresis2\Ceresis\nlog.config...
+2019-06-27 18:00:09.0196 Info Found 47 configuration items

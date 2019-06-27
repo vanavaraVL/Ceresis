@@ -6,5 +6,6 @@ namespace Ceresis.Data.Core.Request
 {
     public class RequestGetWorkSamples : RequestBase
     {
+
     }
 }

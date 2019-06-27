@@ -6,6 +6,11 @@ namespace Ceresis.Data.Core.Model.Sorting
 {
     public class Sorting: ISorting
     {
+        public Sorting()
+        {
+
+        }
+
         public Sorting(string name, string direction)
         {
             Name = name;

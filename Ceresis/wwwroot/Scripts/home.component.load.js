@@ -1,1 +1,246 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="/",n(n.s=528)}({528:function(e,t){var n,r=[];$(".owl-carousel").owlCarousel({items:1,smartSpeed:1e3,autoplay:!0,autoplayTimeout:8e3,autoplaySpeed:1e3,loop:!0,nav:!0,navText:!1,onTranslated:function(){c()}}),$(".active").addClass("anim");var o=$(".owl-item"),a=o.length;$.each(o,function(e,t){n=$(t).find(".owl-item-bg").attr("src"),r.push(n)});var u,l=$(".owl-nav");function c(){var e=parseInt($(".owl-item.active").index()),t=0!=e?e-1:a-1,n=e!=a-1?e+1:0;$(".owl-prev-thump").css({backgroundImage:"url("+r[t]+")"}),$(".owl-next-thump").css({backgroundImage:"url("+r[n]+")"})}$.each(l.children(),function(e,t){(u=$(t)).append('<div class="'+u.attr("class").match(/owl-\w{4}/)+'-thump">'),u.append('<div class="'+u.attr("class").match(/owl-\w{4}/)+'-icon">')}),c()}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./Scripts/home.component.load.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./Scripts/home.component.load.js":
+/*!****************************************!*\
+  !*** ./Scripts/home.component.load.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+﻿
+var owl = $('.owl-carousel'),
+    item,
+    itemsBgArray = [], // to store items background-image
+    itemBGImg;
+
+owl.owlCarousel({
+    items: 1,
+    smartSpeed: 1000,
+    autoplay: true,
+    autoplayTimeout: 8000,
+    autoplaySpeed: 1000,
+    loop: true,
+    nav: true,
+    navText: false,
+    onTranslated: function () {
+        changeNavsThump();
+    }
+});
+
+$('.active').addClass('anim');
+
+var owlItem = $('.owl-item'),
+    owlLen = owlItem.length;
+/* --------------------------------
+  * store items bg images into array
+--------------------------------- */
+$.each(owlItem, function (i, e) {
+    itemBGImg = $(e).find('.owl-item-bg').attr('src');
+    itemsBgArray.push(itemBGImg);
+});
+/* --------------------------------------------
+  * nav control thump
+  * nav control icon
+--------------------------------------------- */
+var owlNav = $('.owl-nav'),
+    el;
+
+$.each(owlNav.children(), function (i, e) {
+    el = $(e);
+    // append navs thump/icon with control pattern(owl-prev/owl-next)
+    el.append('<div class="' + el.attr('class').match(/owl-\w{4}/) + '-thump">');
+    el.append('<div class="' + el.attr('class').match(/owl-\w{4}/) + '-icon">');
+});
+
+/*-------------------------------------------
+  Change control thump on each translate end
+------------------------------------------- */
+function changeNavsThump() {
+    var activeItemIndex = parseInt($('.owl-item.active').index()),
+        // if active item is first item then set last item bg-image in .owl-prev-thump
+        // else set previous item bg-image
+        prevItemIndex = activeItemIndex != 0 ? activeItemIndex - 1 : owlLen - 1,
+        // if active item is last item then set first item bg-image in .owl-next-thump
+        // else set next item bg-image
+        nextItemIndex = activeItemIndex != owlLen - 1 ? activeItemIndex + 1 : 0;
+
+    $('.owl-prev-thump').css({
+        backgroundImage: 'url(' + itemsBgArray[prevItemIndex] + ')'
+    });
+
+    $('.owl-next-thump').css({
+        backgroundImage: 'url(' + itemsBgArray[nextItemIndex] + ')'
+    });
+}
+changeNavsThump();
+
+
+
+
+//$(document).ready(() => {
+//    'use strict';
+
+//    $(function () {
+//        $.scrollify({
+//            section: ".sectionScroll",
+//            sectionName: false,
+//            interstitialSection: ".appFooter"
+//        });
+//    });
+
+//    var owl = $('.owl-carousel'),
+//        item,
+//        itemsBgArray = [], // to store items background-image
+//        itemBGImg;
+
+//    owl.owlCarousel({
+//        items: 1,
+//        smartSpeed: 1000,
+//        autoplay: true,
+//        autoplayTimeout: 8000,
+//        autoplaySpeed: 1000,
+//        loop: true,
+//        nav: true,
+//        navText: false,
+//        onTranslated: function () {
+//            changeNavsThump();
+//        }
+//    });
+
+//    $('.active').addClass('anim');
+
+//    var owlItem = $('.owl-item'),
+//        owlLen = owlItem.length;
+//    /* --------------------------------
+//      * store items bg images into array
+//    --------------------------------- */
+//    $.each(owlItem, function (i, e) {
+//        itemBGImg = $(e).find('.owl-item-bg').attr('src');
+//        itemsBgArray.push(itemBGImg);
+//    });
+//    /* --------------------------------------------
+//      * nav control thump
+//      * nav control icon
+//    --------------------------------------------- */
+//    var owlNav = $('.owl-nav'),
+//        el;
+
+//    $.each(owlNav.children(), function (i, e) {
+//        el = $(e);
+//        // append navs thump/icon with control pattern(owl-prev/owl-next)
+//        el.append('<div class="' + el.attr('class').match(/owl-\w{4}/) + '-thump">');
+//        el.append('<div class="' + el.attr('class').match(/owl-\w{4}/) + '-icon">');
+//    });
+
+//    /*-------------------------------------------
+//      Change control thump on each translate end
+//    ------------------------------------------- */
+//    function changeNavsThump() {
+//        var activeItemIndex = parseInt($('.owl-item.active').index()),
+//            // if active item is first item then set last item bg-image in .owl-prev-thump
+//            // else set previous item bg-image
+//            prevItemIndex = activeItemIndex != 0 ? activeItemIndex - 1 : owlLen - 1,
+//            // if active item is last item then set first item bg-image in .owl-next-thump
+//            // else set next item bg-image
+//            nextItemIndex = activeItemIndex != owlLen - 1 ? activeItemIndex + 1 : 0;
+
+//        $('.owl-prev-thump').css({
+//            backgroundImage: 'url(' + itemsBgArray[prevItemIndex] + ')'
+//        });
+
+//        $('.owl-next-thump').css({
+//            backgroundImage: 'url(' + itemsBgArray[nextItemIndex] + ')'
+//        });
+//    }
+//    changeNavsThump();
+//});
+
+/***/ })
+
+/******/ });

@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { LoginRequest, LoginResponse } from '../DTO/login.dto';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { RequestEditSplitHouse, ResponseEditSplitHouse, RequestCreateSplitHouse,
 import { RequestGetWorkprice, ResponseGetWorkprice, RequestEditWorkprice, ResponseEditWorkprice, RequestDeleteWorkprice, ResponseDeleteWorkprice, RequestAddWorkprice, ResponseAddWorkprice } from '../DTO/workprice.dto';
 import { RequestGetLogotypes, ResponseGetLogotypes, RequestDeleteLogotype, ResponseDeleteLogotype, RequestAddLogotype, ResponseAddLogotype } from '../DTO/logotypes.dto';
 import { RequestCreateCart } from '../DTO/cart.dto';
+import { RequestBase } from '../DTO/base';
 
 @Injectable()
 export class AdmininstrationService {
@@ -36,8 +37,40 @@ export class AdmininstrationService {
         return this.http.post<boolean>(window.settings.BaseUrlAPI + "api/v1.0/administration/call", null);
     }
 
+    fillRequestParams(request: RequestBase): HttpParams {
+
+        let params = new HttpParams();
+
+        // fill paging
+        if (request.paging && request.paging.length) {
+            params = params.append('Paging.Length', request.paging.length.toString());
+        }
+
+        if (request.paging && request.paging.page) {
+            params = params.append('Paging.Page', request.paging.page.toString());
+        }
+
+        if (request.paging && request.paging.pageSize) {
+            params = params.append('Paging.PageSize', request.paging.pageSize.toString());
+        }
+
+        // fill sorting
+        if (request.sorting && request.sorting.name) {
+            params = params.append('Sorting.Name', request.sorting.name);
+        }
+
+        if (request.sorting && request.sorting.direction) {
+            params = params.append('Sorting.Direction', request.sorting.direction);
+        }
+
+        return params;
+    }
+
     getWorksamples(request: RequestGetWorkSample): Observable<ResponseGetWorkSample> {
-        return this.http.post<ResponseGetWorkSample>(window.settings.BaseUrlAPI + "api/v1.0/administration/worksamples", request);
+
+        let params = this.fillRequestParams(request);
+        
+        return this.http.get<ResponseGetWorkSample>(window.settings.BaseUrlAPI + "api/v1.0/administration/worksamples", { params: params });
     }
 
     deleteWorkSample(request: RequestDeleteWorkSample): Observable<ResponseDeleteWorkSample> {
@@ -49,11 +82,17 @@ export class AdmininstrationService {
     }
 
     getWindows(request: RequestGetWindowPlastic): Observable<ResponseGetWindowPlastic> {
-        return this.http.post<ResponseGetWindowPlastic>(window.settings.BaseUrlAPI + "api/v1.0/administration/windows", request);
+
+        let params = this.fillRequestParams(request);
+
+        return this.http.get<ResponseGetWindowPlastic>(window.settings.BaseUrlAPI + "api/v1.0/administration/windows", { params: params });
     }
 
     getSplitHouses(request: RequestGetSplitHouse): Observable<ResponseGetSplitHouse> {
-        return this.http.post<ResponseGetSplitHouse>(window.settings.BaseUrlAPI + "api/v1.0/administration/splithouse", request);
+
+        let params = this.fillRequestParams(request);
+
+        return this.http.get<ResponseGetSplitHouse>(window.settings.BaseUrlAPI + "api/v1.0/administration/splithouse", { params: params });
     }
 
     deleteWindow(request: RequestDeleteWindowPlastic): Observable<ResponseDeleteWindowPlastic> {
@@ -81,7 +120,10 @@ export class AdmininstrationService {
     }
 
     getWorkprice(request: RequestGetWorkprice): Observable<ResponseGetWorkprice> {
-        return this.http.post<ResponseGetWorkprice>(window.settings.BaseUrlAPI + "api/v1.0/administration/workprice", request);
+
+        let params = this.fillRequestParams(request);
+
+        return this.http.get<ResponseGetWorkprice>(window.settings.BaseUrlAPI + "api/v1.0/administration/workprice", { params: params });
     }
 
     editWorkprice(request: RequestEditWorkprice): Observable<ResponseEditWorkprice> {
@@ -97,7 +139,10 @@ export class AdmininstrationService {
     }
 
     getLogos(request: RequestGetLogotypes): Observable<ResponseGetLogotypes> {
-        return this.http.post<ResponseGetLogotypes>(window.settings.BaseUrlAPI + "api/v1.0/administration/logos", request);
+
+        let params = this.fillRequestParams(request);
+
+        return this.http.get<ResponseGetLogotypes>(window.settings.BaseUrlAPI + "api/v1.0/administration/logos", { params: params });
     }
 
     deleteLogo(request: RequestDeleteLogotype): Observable<ResponseDeleteLogotype> {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Ceresis.Data.Core.Response;
-using Ceresis.Data.Core.Wrappers;
 using Ceresis.Service.Core;
+using Ceresis.Service.Core.Wrappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

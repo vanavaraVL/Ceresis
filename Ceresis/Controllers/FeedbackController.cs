@@ -28,11 +28,9 @@ namespace Ceresis.Controllers
         [Route("send", Name = "Send")]
         public ResponseFeedback SendQuestion([FromBody] RequestFeedback request)
         {
-            var response = new ResponseFeedback();
-
             emailService.SendFeedBack(request.Phone, request.Email, request.Name, request.Message);
 
-            return response;
+            return new ResponseFeedback();
         }
     }
 }

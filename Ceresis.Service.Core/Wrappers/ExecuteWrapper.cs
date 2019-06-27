@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ceresis.Data.Core.Wrappers
+namespace Ceresis.Service.Core.Wrappers
 {
     public static class ExecuteWrapper
     {

@@ -21,7 +21,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^3.4.0",
     "core-js": "^2.6.4",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "jquery-scrollify": "^1.0.19",
     "ng6-toastr": "^6.0.0",
     "ngx-cookie-service": "^2.1.0",
